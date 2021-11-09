@@ -6,8 +6,7 @@ import alpaca_trade_api as tradeapi
 import logging
 from datetime import datetime
 import websocket
-import pandas as pd
-import btalib
+from Analysis.indicators import Indicators
 
 # This class communicates between the Alpaca Trade API and Okane. It grabs data that the bot needs, but
 # the data is not processed in this bot class.
@@ -134,55 +133,13 @@ class Bot:
                 line = f"{day},{bar['o']},{bar['h']},{bar['l']},{bar['c']},{bar['v']},0.00\n"
                 f.write(line)
 
-    # Indicators
-    def getSymbolDf(self, symbol):
-        df = pd.read_csv(f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt", parse_dates=True,
-                         index_col="Date")
-        return df
+    # Use Indicators for Analysis
+    def useIndicator(self):
+        indicatorAPI = Indicators()
+        print(indicatorAPI.calc_rsi("AACG"))
+        print(indicatorAPI.calc_sma("AACG"))
+        print(indicatorAPI.calc_macd("AACG"))
 
-    # Simple moving average (timeframe = 1 day, for now only)
-    def calc_sma(self, symbol):
-        symbol_df = self.getSymbolDf(symbol)
-        sma = btalib.sma(symbol_df, period=5)  # Returns sma object, 5-day moving av.
-
-        # Append sma to df.
-        symbol_df['sma'] = sma.df.fillna(0)    # Fillna(0) replaces NaN values with 0.
-
-        # Update file
-        symbol_df.to_csv(fr'D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt', header=True, index=True,
-                         sep=",")
-
-    def calc_rsi(self, symbol):
-        symbol_df = self.getSymbolDf(symbol)
-        rsi = btalib.rsi(symbol_df)
-
-        # Append rsi to df.
-        symbol_df['rsi'] = rsi.df.fillna(0)
-
-        # Update file
-        symbol_df.to_csv(fr'D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt', header=True, index=True,
-                         sep=",")
-
-        oversold_days = symbol_df[symbol_df['rsi'] < 30]
-        # print(oversold_days)
-
-    def calc_macd(self, symbol):
-        symbol_df = self.getSymbolDf(symbol)
-        macd = btalib.macd(symbol_df)
-
-        # 3 columns are generated in macd.df, so we need to separately append all
-        # of these columns to symbol_df.
-
-        # Append macd to df.
-        symbol_df['macd'] = macd.df['macd'].fillna(0)
-        symbol_df['signal'] = macd.df['signal'].fillna(0)
-        symbol_df['histogram'] = macd.df['histogram'].fillna(0)
-
-        # Update file
-        symbol_df.to_csv(fr'D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt', header=True, index=True,
-                         sep=",")
-
-        print(symbol_df)
     # def analyseSymbol():
     # model = Model()
     # Run model on given symbol
@@ -194,7 +151,5 @@ class Bot:
 bot = Bot()
 # bot.stream_websocket()
 bot.getBars("1D", bot.getAllSymbols()[0:2])
-bot.calc_sma("AACG")
-bot.calc_rsi("AACG")
-bot.calc_macd("AACG")
+bot.useIndicator()
 # bot.getBars("1D", bot.getAllSymbols()[0])
