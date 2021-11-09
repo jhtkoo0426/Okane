@@ -1,18 +1,13 @@
 import json
-import re
-
 import requests
 
 from config import *
-import numpy as np
-import pandas as pd
-import scipy as sc
 import alpaca_trade_api as tradeapi
-from alpaca_trade_api import TimeFrame, TimeFrameUnit
 import logging
-import time
-import datetime
+from datetime import datetime
 import websocket
+import pandas as pd
+import btalib
 
 # This class communicates between the Alpaca Trade API and Okane. It grabs data that the bot needs, but
 # the data is not processed in this bot class.
@@ -116,17 +111,78 @@ class Bot:
         return nasdaq_symbols
 
     # symbol = list of symbols
+    # 100 symbols limit per request!
+    # This function gets bars and exports the data to a new .txt file (for every symbol queried).
+    # This function is used to generate the bar charts for bta-lib.
     def getBars(self, timeframe, symbol):
-        symbols = ",".join(symbol)
+        if len(symbol) == 1:
+            symbols = symbol[0]
+        else:
+            symbols = ",".join(symbol)
         r = requests.get(f"{self.BARS_URL}/{timeframe}?symbols={symbols}&limit=1000", headers=self.HEADERS)
-        print(json.dumps(r.json(), indent=4))
+        data = r.json()
+        for sym in data:
+            # Create file to store data.
+            filename = f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{sym}.txt"
+            f = open(filename, 'w+')
+            f.write('Date,Open,High,Low,Close,Volume,OpenInterest\n')
 
-    # 100 Symbols limit per request!
-    def getAllBars(self, timeframe, symbollist):
-        symbols = ",".join(symbollist)
-        r = requests.get(f"{self.BARS_URL}/{timeframe}?symbols={symbols}&limit=1000", headers=self.HEADERS)
-        print(json.dumps(r.json(), indent=4))
+            # Format each line
+            for bar in data[sym]:
+                t = datetime.fromtimestamp(bar['t'])
+                day = t.strftime('%Y-%m-%d')
+                line = f"{day},{bar['o']},{bar['h']},{bar['l']},{bar['c']},{bar['v']},0.00\n"
+                f.write(line)
 
+    # Indicators
+    def getSymbolDf(self, symbol):
+        df = pd.read_csv(f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt", parse_dates=True,
+                         index_col="Date")
+        return df
+
+    # Simple moving average (timeframe = 1 day, for now only)
+    def calc_sma(self, symbol):
+        symbol_df = self.getSymbolDf(symbol)
+        sma = btalib.sma(symbol_df, period=5)  # Returns sma object, 5-day moving av.
+
+        # Append sma to df.
+        symbol_df['sma'] = sma.df.fillna(0)    # Fillna(0) replaces NaN values with 0.
+
+        # Update file
+        symbol_df.to_csv(fr'D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt', header=True, index=True,
+                         sep=",")
+
+    def calc_rsi(self, symbol):
+        symbol_df = self.getSymbolDf(symbol)
+        rsi = btalib.rsi(symbol_df)
+
+        # Append rsi to df.
+        symbol_df['rsi'] = rsi.df.fillna(0)
+
+        # Update file
+        symbol_df.to_csv(fr'D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt', header=True, index=True,
+                         sep=",")
+
+        oversold_days = symbol_df[symbol_df['rsi'] < 30]
+        # print(oversold_days)
+
+    def calc_macd(self, symbol):
+        symbol_df = self.getSymbolDf(symbol)
+        macd = btalib.macd(symbol_df)
+
+        # 3 columns are generated in macd.df, so we need to separately append all
+        # of these columns to symbol_df.
+
+        # Append macd to df.
+        symbol_df['macd'] = macd.df['macd'].fillna(0)
+        symbol_df['signal'] = macd.df['signal'].fillna(0)
+        symbol_df['histogram'] = macd.df['histogram'].fillna(0)
+
+        # Update file
+        symbol_df.to_csv(fr'D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt', header=True, index=True,
+                         sep=",")
+
+        print(symbol_df)
     # def analyseSymbol():
     # model = Model()
     # Run model on given symbol
@@ -137,4 +193,8 @@ class Bot:
 # Test Code - Do NOT run this unless you want to execute the order.
 bot = Bot()
 # bot.stream_websocket()
-bot.getBars("1D", bot.getAllSymbols()[:100])
+bot.getBars("1D", bot.getAllSymbols()[0:2])
+bot.calc_sma("AACG")
+bot.calc_rsi("AACG")
+bot.calc_macd("AACG")
+# bot.getBars("1D", bot.getAllSymbols()[0])
