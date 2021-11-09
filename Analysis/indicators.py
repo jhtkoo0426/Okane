@@ -9,3 +9,4 @@ class Indicator:
 
     # def movingAverage(self, symbol):
         # Get the bars for a symbol
+    # def ma(self):
