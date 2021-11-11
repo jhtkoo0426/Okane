@@ -35,3 +35,7 @@ All indicators in this bot are calculated using the `bta-lib` library.
 
 ### calc_macd
 - Calculates the Moving Average Convergence Divergence for a symbol and updates its dataframe.
+
+
+## Notes
+- Re-generate API key and secret key every 2 days. This is due to the free account subscription.
