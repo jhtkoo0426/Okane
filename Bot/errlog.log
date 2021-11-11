@@ -1,0 +1,1452 @@
+2021-11-10 20:13:54,202:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:13:56,009:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:13:56,367:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:13:56,540:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,208:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,211:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,216:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,219:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,248:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,282:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:00,489:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:01,609:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:01,884:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:02,858:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:02,860:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:02,886:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:02,902:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:02,917:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:04,395:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:04,395:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:04,397:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:04,938:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:04,944:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:05,062:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:06,258:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:06,284:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:06,955:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:07,692:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:07,796:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:08,321:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:08,491:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:08,532:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:08,659:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:08,820:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,004:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,019:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,083:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,163:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,378:ERROR:error during websocket communication: trade_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: trade_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,464:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:09,728:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:10,192:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:10,196:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:10,840:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:10,976:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:11,013:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 145, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:51,402:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:51,419:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:54,078:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:14:59,053:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:02,830:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:03,291:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:06,161:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:14,640:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:16,312:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:17,027:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:20,203:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:20,218:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:22,918:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:28,852:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:33,371:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:33,562:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:40,751:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:15:40,752:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:17:17,862:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:17:19,833:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:17:19,835:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:17:19,947:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-10 20:17:19,963:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-11 14:41:48,966:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-11 14:42:25,196:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-11 14:42:31,868:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-11 14:42:36,864:ERROR:error during websocket communication: quote_callback() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 218, in _run_forever
+    await self._consume()
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 100, in _consume
+    await self._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 317, in _dispatch
+    await super()._dispatch(msg)
+  File "D:\Coding\Projects\Okane\venv\lib\site-packages\alpaca_trade_api\stream.py", line 140, in _dispatch
+    await handler(self._cast(msg_type, msg))
+TypeError: quote_callback() takes 1 positional argument but 2 were given
+2021-11-11 14:55:59,682:ERROR:error from callback <bound method Bot.on_open of <__main__.Bot object at 0x0000021C31688220>>: on_open() takes 1 positional argument but 2 were given
+2021-11-11 17:31:53,164:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,242:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,249:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,308:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,349:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,350:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,640:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,866:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,867:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:53,996:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,000:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,001:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,001:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,015:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,016:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,109:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,111:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,172:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,468:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,469:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,469:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,470:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,470:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,471:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,471:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,472:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,472:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,474:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,495:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,501:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,521:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,545:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,796:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:54,906:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,013:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,097:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,407:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,408:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,440:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,497:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,509:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:55,999:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:56,165:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:56,166:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:56,357:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:56,446:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:56,464:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,700:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,750:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,957:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,957:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,958:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,958:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,959:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,960:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,961:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,961:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,961:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,962:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,963:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,964:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,964:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:57,965:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:58,200:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:58,257:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:58,383:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:58,510:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:58,731:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:58,741:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:59,737:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:59,822:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:31:59,822:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:00,043:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:00,428:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:00,496:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:00,791:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,047:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,148:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,148:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,350:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,352:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,472:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,472:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,472:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:01,473:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001E8527F0430>>: string indices must be integers
+2021-11-11 17:32:28,352:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:28,433:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:28,485:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:28,515:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:28,516:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:28,537:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,027:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,028:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,028:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,029:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,095:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,095:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,766:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:29,799:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:30,325:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:30,406:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:30,949:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:30,950:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:30,953:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:30,953:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:31,330:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:31,503:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:31,565:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:31,565:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:32,746:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:32,747:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:32,747:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:32,748:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001DF338E04C0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:45,485:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:45,564:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:45,577:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:45,892:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,019:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,061:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,253:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,253:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,462:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,539:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,791:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,791:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,792:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,799:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,802:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,808:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:46,809:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,044:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,044:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,079:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,080:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,257:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,258:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,362:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,363:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,387:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:47,388:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,042:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,044:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,045:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,234:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,246:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,259:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,262:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,263:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,308:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,808:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,809:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:48,843:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,062:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,062:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,264:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,271:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,325:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,326:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,581:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,582:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,634:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,671:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:49,824:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,065:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,066:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,066:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,269:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,270:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,317:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,318:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,410:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,411:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,411:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,412:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,413:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,485:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,733:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,734:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:50,738:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:51,273:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:51,274:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000264E9A20460>>: string indices must be integers
+2021-11-11 17:32:58,497:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,576:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,608:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,609:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,609:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,610:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,610:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,922:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,922:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,923:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,931:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:58,968:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,152:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,296:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,317:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,317:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,318:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,318:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,319:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,731:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,731:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,732:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:32:59,734:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,156:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,547:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,778:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,779:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,779:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,780:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,781:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,782:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,803:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,804:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,804:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,882:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,883:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,883:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:00,884:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:01,059:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001F7E07204F0>>: 'str' object has no attribute 'data'
+2021-11-11 17:33:24,299:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:24,377:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:24,783:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:26,590:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:26,702:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:26,703:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:27,080:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:29,065:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:29,733:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:30,566:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:31,545:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:31,646:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:33,902:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,091:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,179:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,347:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,401:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,418:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,757:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,758:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:35,830:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:36,102:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:36,865:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:33:36,865:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002BEC2AD04F0>>: 'str' object has no attribute 'raw'
+2021-11-11 17:34:20,326:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,404:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,519:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,520:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,902:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,904:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,904:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,905:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,906:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,906:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,906:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,907:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,908:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,908:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,912:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,981:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,981:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:20,982:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,154:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,520:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,521:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,688:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,689:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,690:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:21,690:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:22,383:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:22,526:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:22,527:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000027CFEF304C0>>: 'str' object has no attribute 'loads'
+2021-11-11 17:34:55,966:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,045:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,255:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,256:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,295:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,336:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,337:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:56,813:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,059:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,386:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,387:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,387:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,388:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,388:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,389:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,434:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,558:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,643:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,643:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,681:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,681:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,682:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,683:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,683:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,685:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:57,734:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,129:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,130:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,279:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,281:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,294:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,386:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,409:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,410:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,443:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,444:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,446:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,544:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,554:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,573:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,704:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,705:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,719:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,720:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,729:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,898:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,900:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:58,949:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:59,026:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:59,056:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:34:59,061:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000255FFD704C0>>: an integer is required (got type str)
+2021-11-11 17:38:35,591:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000026E55E202B0>>: 'p'
+2021-11-11 17:38:35,670:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000026E55E202B0>>: 'p'
+2021-11-11 17:42:56,009:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000022890CE0340>>: 'p'
+2021-11-11 17:42:56,009:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000022890CE0340>>: 'p'
+2021-11-11 17:43:25,777:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000190FFDB0550>>: 'p'
+2021-11-11 17:43:36,381:ERROR:error from callback <bound method Bot.on_open of <__main__.Bot object at 0x00000193EB0C0A90>>: unhashable type: 'slice'
+2021-11-11 17:43:36,382:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000193EB0C0A90>>: 'p'
+2021-11-11 17:44:10,855:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: 'p'
+2021-11-11 17:44:10,933:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: 'p'
+2021-11-11 17:44:11,749:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:12,051:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:12,348:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:12,647:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:12,945:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:13,266:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:13,565:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:13,863:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:14,175:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:14,466:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:14,762:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:15,063:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:15,360:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:15,661:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:15,960:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:16,264:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:16,559:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:16,853:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:17,138:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:17,430:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:17,726:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:18,021:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:18,309:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:18,589:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:18,887:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:19,193:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:19,491:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:19,789:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:20,089:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:20,391:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:20,692:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:20,990:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:21,289:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:21,587:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:21,891:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:22,191:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:22,488:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:22,788:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:23,089:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:23,386:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:23,686:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:23,986:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:24,288:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:24,585:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:24,884:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:25,185:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:25,479:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:25,773:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:26,133:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:26,430:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:26,739:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:27,033:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:27,335:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:27,630:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:27,930:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:28,232:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:28,528:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:28,829:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:29,130:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:29,430:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:29,726:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:30,029:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:30,326:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:30,625:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:30,926:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:31,225:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:31,523:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:31,826:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:32,124:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:32,419:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:32,722:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:33,021:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:33,319:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:33,619:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:33,919:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:34,224:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:34,524:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:34,840:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:35,135:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:35,431:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:35,730:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:36,028:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:36,325:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:36,628:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:36,916:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:37,213:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:37,506:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:37,799:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:38,094:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:38,409:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:38,704:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:39,004:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:39,301:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:39,597:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:39,896:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:40,197:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:40,493:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:40,793:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:41,093:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:41,392:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:41,685:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:41,983:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:42,276:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:42,568:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:42,884:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:43,185:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:43,484:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:43,776:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:44,066:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:44,366:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:44,657:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:44,959:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:45,263:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:45,561:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:45,855:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:46,153:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:46,455:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:46,754:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:47,058:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:47,359:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:47,661:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:47,961:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:48,261:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:48,541:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:48,834:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002B4249A0A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:53,430:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: 'p'
+2021-11-11 17:44:53,509:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: 'p'
+2021-11-11 17:44:54,234:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:54,598:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:54,892:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:55,189:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:55,492:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:55,789:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:56,090:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:56,381:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:56,659:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:56,955:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:57,258:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:57,547:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:57,841:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:58,136:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:58,431:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:58,731:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:59,019:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:59,312:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:59,600:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:44:59,879:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:00,155:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:00,451:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:00,807:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:01,102:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:01,531:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:01,822:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002594AF20A90>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:53,523:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: 'p'
+2021-11-11 17:45:53,601:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: 'p'
+2021-11-11 17:45:53,918:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:54,208:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:54,506:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:54,807:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:55,105:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:55,399:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:55,675:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:55,981:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:56,272:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:56,557:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:45:56,852:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001A9B9C204C0>>: index -1 is out of bounds for axis 0 with size 0
+2021-11-11 17:47:13,682:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: 'p'
+2021-11-11 17:47:13,760:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: 'p'
+2021-11-11 17:47:16,445:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:17,828:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:19,156:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:20,458:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:21,724:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: qty must be > 0
+2021-11-11 17:47:23,032:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:24,368:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:25,673:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:27,001:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:28,333:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:29,638:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:47:30,944:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001B1FFA002E0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:03,928:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: 'p'
+2021-11-11 17:49:04,005:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: 'p'
+2021-11-11 17:49:05,532:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:07,589:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:08,921:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:10,242:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:11,571:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:12,897:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:14,217:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:15,535:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:16,853:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:18,185:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:19,503:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:20,813:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:22,132:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:23,437:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:24,755:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:26,131:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:27,454:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:28,793:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:30,130:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:31,440:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: qty must be > 0
+2021-11-11 17:49:32,768:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:34,068:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:35,389:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000025FA5510A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:40,252:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000227FF8A0A90>>: 'p'
+2021-11-11 17:49:40,330:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000227FF8A0A90>>: 'p'
+2021-11-11 17:49:41,769:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000227FF8A0A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:43,084:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000227FF8A0A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:44,415:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000227FF8A0A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:45,740:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000227FF8A0A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:49:56,458:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: 'p'
+2021-11-11 17:49:56,537:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: 'p'
+2021-11-11 17:49:57,873:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: qty must be > 0
+2021-11-11 17:49:59,187:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:00,518:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:02,066:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:03,395:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: qty must be > 0
+2021-11-11 17:50:04,734:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:06,102:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:07,596:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:08,949:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:10,270:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:11,587:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:12,915:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:14,260:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: qty must be > 0
+2021-11-11 17:50:15,607:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:16,955:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:18,295:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:19,595:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:20,910:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: qty must be > 0
+2021-11-11 17:50:22,251:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:23,601:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:24,968:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:26,289:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:50:27,623:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002434CA40A90>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:05,953:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: 'p'
+2021-11-11 17:51:06,032:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: 'p'
+2021-11-11 17:51:07,495:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: qty must be > 0
+2021-11-11 17:51:08,832:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:10,155:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:11,502:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:12,810:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:14,139:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:15,473:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:16,815:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:18,142:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:19,474:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:20,798:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:22,142:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:23,455:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:24,777:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: qty must be > 0
+2021-11-11 17:51:26,314:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:27,590:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:28,910:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:30,247:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:31,577:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:32,901:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:34,226:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:35,564:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:36,887:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:38,232:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:39,535:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:40,882:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:42,211:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: qty must be > 0
+2021-11-11 17:51:43,537:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:51:44,831:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000016D6BE304F0>>: can't multiply sequence by non-int of type 'float'
+2021-11-11 17:53:32,575:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: 'p'
+2021-11-11 17:53:32,652:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: 'p'
+2021-11-11 17:53:43,864:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:53:45,232:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:53:46,566:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:53:47,886:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:53:49,230:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:53:50,553:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:04,472:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:05,793:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:07,145:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:08,476:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:09,806:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:17,264:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:18,812:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:20,128:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:21,465:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:22,807:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:24,104:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:25,425:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:26,707:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:27,993:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:29,310:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:30,633:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:31,953:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:33,235:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:34,503:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:35,790:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:37,089:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:38,396:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:54:39,719:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000162E9760A90>>: qty must be > 0
+2021-11-11 17:58:11,791:ERROR:error from callback <bound method Bot.on_open of <__main__.Bot object at 0x00000223BDDC0280>>: request is not authorized
+2021-11-11 17:58:11,792:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000223BDDC0280>>: 'p'
+2021-11-11 17:58:23,593:ERROR:error from callback <bound method Bot.on_open of <__main__.Bot object at 0x0000022A4A940A30>>: request is not authorized
+2021-11-11 17:58:23,594:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000022A4A940A30>>: 'p'
+2021-11-11 17:58:38,750:ERROR:error from callback <bound method Bot.on_open of <__main__.Bot object at 0x00000147406404F0>>: request is not authorized
+2021-11-11 17:58:38,751:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x00000147406404F0>>: 'p'
+2021-11-11 17:59:03,225:ERROR:error from callback <bound method Bot.on_open of <__main__.Bot object at 0x0000022BFFA604F0>>: request is not authorized
+2021-11-11 17:59:03,226:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x0000022BFFA604F0>>: 'p'
+2021-11-11 18:00:47,285:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002C0DF4705B0>>: 'p'
+2021-11-11 18:00:47,362:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002C0DF4705B0>>: 'p'
+2021-11-11 18:01:28,960:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002016A961A30>>: 'p'
+2021-11-11 18:01:29,038:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000002016A961A30>>: 'p'
+2021-11-11 18:02:16,547:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001FD235904F0>>: 'p'
+2021-11-11 18:02:16,547:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001FD235904F0>>: 'p'
+2021-11-11 18:03:00,021:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001D2D00D0370>>: 'p'
+2021-11-11 18:03:00,021:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001D2D00D0370>>: 'p'
+2021-11-11 18:18:27,761:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001EDE88F0370>>: 'p'
+2021-11-11 18:18:27,762:ERROR:error from callback <bound method Bot.on_message of <__main__.Bot object at 0x000001EDE88F0370>>: 'p'
