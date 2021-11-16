@@ -1,10 +1,11 @@
 import os.path
 import sys
-import time
+from math import floor
 import time
 from datetime import datetime, timedelta
 
 import alpaca_trade_api as tradeapi
+import btalib
 import pandas as pd
 import pytz
 import requests
@@ -41,7 +42,7 @@ class Bot:
         for bar in bars:
             t = datetime.fromtimestamp(bar['t'])
             day = t.strftime('%Y-%m-%d')
-            line = f"{day},{bar['o']},{bar['h']},{bar['l']},{bar['c']},{bar['v']}\n"
+            line = f"{day},{bar['o']},{bar['h']},{bar['l']},{bar['c']},{bar['v']},0.0\n"
             f.write(line)
 
         print(f"[SYSTEM]: Added/Updated {symbol}.txt.")
@@ -57,14 +58,13 @@ class Bot:
         start = pd.Timestamp(delay.strftime("%Y-%m-%d %H:%M"), tz=self.NY).isoformat()
 
         data = self.api.get_bars(symbol, TimeFrame(1, TimeFrameUnit.Minute), start=start, end=start, adjustment='raw').df.iloc[0]
-        op, high, low, close, volume = data['open'], data['high'], data['low'], data['close'], data['volume']
-
+        op, high, low, close, volume = str(data['open']), str(data['high']), str(data['low']), str(data['close']), str(data['trade_count'])
         date = delay.strftime("%Y-%m-%d")
-        writeData = ','.join([date, op, high, low, close, volume, "0"])
+        writeData = ','.join([date, op, high, low, close, volume, "0.0"])
 
-        with open(filename, 'a') as f:
-            f.write("\n")
+        with open(filepath, 'a') as f:
             f.write(writeData)
+            f.write("\n")
             print(f"[SYSTEM]: Updated bar file for {symbol}.txt.")
 
     def marketIsOpen(self):
@@ -92,16 +92,27 @@ class Bot:
                 time.sleep(1)
         self.start_bot()
 
+    # Read csv into dataframe
+    def extractCSV(self, symbol):
+        return pd.read_csv(f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt")
+
+    # Main function to trigger any action when market opens.
     def start_bot(self):
         self.fetchSymbolBars("AAPL")
         remaining_time = self.time_to_market_close()
         while remaining_time > 120:
             # Get bars every 1 minute (with current 15 minute delay).
-            if remaining_time % 60 == 0:
+            if floor(remaining_time) % 60 == 0:
                 self.updateBar("AAPL")
-            #self.strategy()
+                self.calc_macd("AAPL")
             remaining_time -= 1
             time.sleep(1)
+
+    # Implement MACD Strategy
+    def calc_macd(self, symbol):
+        dataf = self.extractCSV(symbol)
+        res = btalib.macd(dataf).df
+        print(res)
 
 
 if __name__ == '__main__':
