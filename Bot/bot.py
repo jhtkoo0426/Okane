@@ -94,7 +94,7 @@ class Bot:
 
     # Read csv into dataframe
     def extractCSV(self, symbol):
-        return pd.read_csv(f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt")
+        return pd.read_csv(f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt", parse_dates=True, index_col="Date")
 
     # Main function to trigger any action when market opens.
     def start_bot(self):
@@ -104,15 +104,17 @@ class Bot:
             # Get bars every 1 minute (with current 15 minute delay).
             if floor(remaining_time) % 60 == 0:
                 self.updateBar("AAPL")
-                self.calc_macd("AAPL")
+                macd, signal, histogram = self.calc_macd("AAPL")
             remaining_time -= 1
             time.sleep(1)
 
     # Implement MACD Strategy
     def calc_macd(self, symbol):
         dataf = self.extractCSV(symbol)
-        res = btalib.macd(dataf).df
-        print(res)
+        res = btalib.macd(dataf).df         # Resulting dataframe after calculating MACD.
+        recent = res.iloc[-1]               # Retrieve the most recent (with 15 min delay) MACD data.
+        macd, signal, histogram = recent['macd'], recent['signal'], recent['histogram']
+        return macd, signal, histogram
 
 
 if __name__ == '__main__':
