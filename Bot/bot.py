@@ -1,3 +1,4 @@
+import math
 import os.path
 import sys
 from math import floor
@@ -11,8 +12,9 @@ import pytz
 import requests
 from alpaca_trade_api import TimeFrame, TimeFrameUnit
 from alpaca_trade_api.stream import URL
+from alpaca_trade_api.rest import APIError
 
-from config import API_KEY, SECRET_KEY
+from Bot.config import API_KEY, SECRET_KEY
 
 
 class Bot:
@@ -50,21 +52,59 @@ class Bot:
                 time.sleep(1)
         self.start_bot()
 
+    def buyOrder(self, symbol, qty):
+        self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day')
+
+    def sellOrder(self, symbol, qty):
+        self.api.submit_order(symbol=symbol, side='sell', type='market', qty=qty, time_in_force='day')
+
+    def getPosition(self, symbol):
+        try:
+            return self.api.get_position(symbol).raw
+        except APIError:
+            return None
+
+    def getQty(self, symbol):
+        return self.getPosition(symbol)['qty']
+
+    def getAccountDetails(self):
+        return self.api.get_account().raw
+
+    def getAccountStatus(self):
+        return self.getAccountDetails()['status']
+
+    def getAccountCash(self):
+        return self.getAccountDetails()['cash']
+
+    def getAccountEquity(self):
+        return self.getAccountDetails()['equity']
+
+    # Function to determine how many shares to buy
+    def determineBuyShares(self, sharesPrice):
+        current_cash = self.getAccountCash()
+        shares_to_buy = math.ceil(float(current_cash) * 0.05 / sharesPrice) # Risking 3% of equity.
+        return shares_to_buy
+
     # Main function to activate bot.
     def start_bot(self):
-        remaining_time = self.time_to_market_close()
-        while remaining_time > 120:
-            # Get bars every 1 minute (with current 15 minute delay).
-            if floor(remaining_time) % 60 == 0:
-                self.fetchSymbolBars("AAPL")
-                # Update bar data file
-                self.updateBar("AAPL")
-
-                # Calculate the newest MACD from the updated file.
-                self.strategy_macd("AAPL")
-
-            remaining_time -= 1
-            time.sleep(1)
+        print("[SYSTEM]: Starting Bot")
+        if self.marketIsOpen() is True:
+            remaining_time = self.time_to_market_close()
+            while remaining_time > 120:
+                # Get bars every 1 minute (with current 15 minute delay).
+                if floor(remaining_time) % 60 == 0:
+                    symbols = ["AAPL", "MSFT", "NVDA", "RIVN", "TSLA", "LCID", "PYPL", "BABA", "PROG", "PLTR"]
+                    for symbol in symbols:
+                        self.fetchSymbolBars(symbol)
+                        self.updateBar(symbol)          # Update bar data file
+                        self.strategy_macd(symbol)      # Calculate the newest MACD from the updated file.
+                remaining_time -= 1
+                time.sleep(1)
+            if 0 < remaining_time < 120:
+                print("[SYSTEM]: Market is closing in 2 minutes.")
+            elif remaining_time == 0:
+                print("[SYSTEM]: Market has closed. Bot will now sleep. Goodnight!")
+        self.wait_for_market_open()
 
     # Data-related functions
     # Get bars for a symbol. Create a file for the symbol if it doesn't exist. Update the file otherwise.
@@ -151,21 +191,14 @@ class Bot:
             print(f"[STRATEGY]: Conditions for order for {symbol} are satisfied. Making order...")
             if macd > 0:
                 # ENTRY: Buy when the MACD crosses over the zero line.
-                print(f"[STRATEGY]: Bought 100 shares of {symbol}.")
+                quantity = self.determineBuyShares(last_bid_price)
+                self.buyOrder(symbol, quantity)
+                print(f"[STRATEGY]: Bought {quantity} shares of {symbol}.")
             elif macd < 0:
                 # EXIT: Sell at a proft or loss when the MACD crooses below the zero line.
-                print(f"[STRATEGY]: Sold 100 shares of {symbol}.")
+                self.sellOrder(symbol, self.getQty(symbol))
+                print(f"[STRATEGY]: Sold all shares of {symbol}.")
 
 
-if __name__ == '__main__':
-    bot = Bot()
-    if bot.time_to_market_close() < 120:
-        print("[SYSTEM]: Market is closing in 2 minutes.")
-    elif bot.time_to_market_close() == 0:
-        print("[SYSTEM]: Market has closed. Bot will now sleep. Goodnight!")
-    data = bot.api.get_clock().raw
-    bot.wait_for_market_open()
-
-    # Test code
-    # bot.start_bot()
-    # bot.strategy_macd("AAPL")
+bot = Bot()
+bot.start_bot()
