@@ -195,15 +195,18 @@ class Bot:
             print(f"[STRATEGY]: Conditions for order for {symbol} are satisfied. Making order...")
             if macd > 0:
                 # ENTRY: Buy when the MACD crosses over the zero line.
-                quantity = self.determineBuyShares(last_bid_price)
-                self.buyOrder(symbol, quantity)
-                print(f"[STRATEGY]: Bought {quantity} shares of {symbol}.")
+                # NEW: Only buy if no positions for symbol
+                if self.getPosition(symbol) is None:
+                    quantity = self.determineBuyShares(last_bid_price)
+                    if quantity > 0:
+                        self.buyOrder(symbol, quantity)
+                        print(f"[STRATEGY]: Bought {quantity} shares of {symbol}.")
         if macd < 0:
             # EXIT: Sell at a proft or loss when the MACD crosses below the zero line.
             quantity = self.getQty(symbol)
             if quantity is not None:
                 self.sellOrder(symbol, quantity)
-            print(f"[STRATEGY]: Sold all shares of {symbol}.")
+                print(f"[STRATEGY]: Sold all shares of {symbol}.")
 
 
 bot = Bot()
