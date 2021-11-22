@@ -65,7 +65,11 @@ class Bot:
             return None
 
     def getQty(self, symbol):
-        return self.getPosition(symbol)['qty']
+        position = self.getPosition(symbol)
+        if position is None:
+            return None
+        else:
+            return position['qty']
 
     def getAccountDetails(self):
         return self.api.get_account().raw
@@ -194,10 +198,12 @@ class Bot:
                 quantity = self.determineBuyShares(last_bid_price)
                 self.buyOrder(symbol, quantity)
                 print(f"[STRATEGY]: Bought {quantity} shares of {symbol}.")
-            elif macd < 0:
-                # EXIT: Sell at a proft or loss when the MACD crooses below the zero line.
-                self.sellOrder(symbol, self.getQty(symbol))
-                print(f"[STRATEGY]: Sold all shares of {symbol}.")
+        if macd < 0:
+            # EXIT: Sell at a proft or loss when the MACD crosses below the zero line.
+            quantity = self.getQty(symbol)
+            if quantity is not None:
+                self.sellOrder(symbol, quantity)
+            print(f"[STRATEGY]: Sold all shares of {symbol}.")
 
 
 bot = Bot()
