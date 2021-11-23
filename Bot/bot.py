@@ -13,6 +13,7 @@ import requests
 from alpaca_trade_api import TimeFrame, TimeFrameUnit
 from alpaca_trade_api.stream import URL
 from alpaca_trade_api.rest import APIError
+import yahoo_fin.stock_info as si
 
 from Bot.config import API_KEY, SECRET_KEY
 
@@ -83,6 +84,9 @@ class Bot:
     def getAccountEquity(self):
         return self.getAccountDetails()['equity']
 
+    def getAccountPositions(self):
+        return [i.raw['symbol'] for i in self.api.list_positions()]
+
     # Function to determine how many shares to buy
     def determineBuyShares(self, sharesPrice):
         current_cash = self.getAccountCash()
@@ -97,8 +101,16 @@ class Bot:
             while remaining_time > 120:
                 # Get bars every 1 minute (with current 15 minute delay).
                 if floor(remaining_time) % 60 == 0:
-                    symbols = ["AAPL", "MSFT", "NVDA", "RIVN", "TSLA", "LCID", "PYPL", "BABA", "PROG", "PLTR"]
-                    for symbol in symbols:
+                    # Get the current top 10 most traded symbols on the market.
+                    symbols = si.get_day_most_active(10)['Symbol'].to_list()
+
+                    # Get all current positions
+                    positions = self.getAccountPositions()
+
+                    # Watch all symbols that are involved:
+                    watchlist = list(set(symbols + positions))
+
+                    for symbol in watchlist:
                         self.fetchSymbolBars(symbol)
                         self.updateBar(symbol)          # Update bar data file
                         self.strategy_macd(symbol)      # Calculate the newest MACD from the updated file.
@@ -186,19 +198,19 @@ class Bot:
         macd, signal, histogram = self.calc_macd(symbol)
         recent_moving_av = self.calc_ma(symbol, 200)        # Calculate 200-period moving average.
 
-        last_bid = self.api.get_last_quote(symbol).raw
-        last_bid_price = last_bid["bidprice"]
+        last_bid_price = si.get_live_price(symbol)
 
         print(f"[STRATEGY] Recent data for {symbol}:\nLast Bid: {last_bid_price} | MA: {recent_moving_av} | MACD: {macd} | Signal: {signal} | Histogram: {histogram}")
 
         if last_bid_price > recent_moving_av:
-            print(f"[STRATEGY]: Conditions for order for {symbol} are satisfied. Making order...")
+
             if macd > 0:
                 # ENTRY: Buy when the MACD crosses over the zero line.
                 # NEW: Only buy if no positions for symbol
                 if self.getPosition(symbol) is None:
                     quantity = self.determineBuyShares(last_bid_price)
                     if quantity > 0:
+                        print(f"[STRATEGY]: Conditions for order for {symbol} are satisfied. Making order...")
                         self.buyOrder(symbol, quantity)
                         print(f"[STRATEGY]: Bought {quantity} shares of {symbol}.")
         if macd < 0:
@@ -209,5 +221,6 @@ class Bot:
                 print(f"[STRATEGY]: Sold all shares of {symbol}.")
 
 
-bot = Bot()
-bot.start_bot()
+if __name__ == '__main__':
+    bot = Bot()
+    bot.start_bot()
