@@ -53,8 +53,18 @@ class Bot:
                 time.sleep(1)
         self.start_bot()
 
+    def calcTakeProfit(self, symbol):
+        currPrice = float(si.get_live_price(symbol))
+        return currPrice * 1.01
+
+    def calcStopLoss(self, symbol):
+        currPrice = float(si.get_live_price(symbol))
+        return currPrice * 0.99
+
     def buyOrder(self, symbol, qty):
-        self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day')
+        takeProfit = dict(limit_price=self.calcTakeProfit(symbol))
+        stopLoss = dict(stop_price=self.calcStopLoss(symbol), limit_price=self.calcStopLoss(symbol))
+        self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day', take_profit=takeProfit, stop_loss=stopLoss)
 
     def sellOrder(self, symbol, qty):
         self.api.submit_order(symbol=symbol, side='sell', type='market', qty=qty, time_in_force='day')
