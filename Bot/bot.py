@@ -90,7 +90,7 @@ class Bot:
     # Function to determine how many shares to buy
     def determineBuyShares(self, sharesPrice):
         current_cash = self.getAccountCash()
-        shares_to_buy = math.ceil(float(current_cash) * 0.05 / sharesPrice) # Risking 3% of equity.
+        shares_to_buy = math.ceil(float(current_cash) * 0.1 / sharesPrice) # Risking 3% of equity.
         return shares_to_buy
 
     # Main function to activate bot.
@@ -102,7 +102,7 @@ class Bot:
                 # Get bars every 1 minute (with current 15 minute delay).
                 if floor(remaining_time) % 60 == 0:
                     # Get the current top 10 most traded symbols on the market.
-                    symbols = si.get_day_most_active(10)['Symbol'].to_list()
+                    symbols = si.get_day_most_active(20)['Symbol'].to_list()
 
                     # Get all current positions
                     positions = self.getAccountPositions()
@@ -111,9 +111,9 @@ class Bot:
                     watchlist = list(set(symbols + positions))
 
                     for symbol in watchlist:
-                        self.fetchSymbolBars(symbol)
-                        self.updateBar(symbol)          # Update bar data file
-                        self.strategy_macd(symbol)      # Calculate the newest MACD from the updated file.
+                        if self.fetchSymbolBars(symbol) is True:        # Prevent empty dataframe error
+                            self.updateBar(symbol)          # Update bar data file
+                            self.strategy_macd(symbol)      # Calculate the newest MACD from the updated file.
                 remaining_time -= 1
                 time.sleep(1)
             if 0 < remaining_time < 120:
@@ -128,22 +128,26 @@ class Bot:
         print(f"[SYSTEM]: Fetching most recent bars for {symbol}.")
         r = requests.get(f"{self.DATA_BASE_URL}/v1/bars/1Min?symbols={symbol}&limit=1000", headers=self.HEADERS)
         data = r.json()
+        if not data[symbol]:
+            print(f"[SYSTEM]: Data collected from {symbol} is insufficient for analysing.")
+            return False
+        else:
+            # Check if data file for the symbol exists, if not create file.
+            filename = f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt"
+            f = open(filename, 'w+')
+            f.write('Date,Open,High,Low,Close,Volume\n')
 
-        # Check if data file for the symbol exists, if not create file.
-        filename = f"D:/Coding/Projects/Okane/Analysis/SymbolsBarsData/{symbol}.txt"
-        f = open(filename, 'w+')
-        f.write('Date,Open,High,Low,Close,Volume\n')
+            # Get bars of symbol
+            bars = data[symbol]
 
-        # Get bars of symbol
-        bars = data[symbol]
-
-        # Format each line
-        for bar in bars:
-            t = datetime.fromtimestamp(bar['t'])
-            day = t.strftime('%Y-%m-%d')
-            line = f"{day},{bar['o']},{bar['h']},{bar['l']},{bar['c']},{bar['v']}\n"
-            f.write(line)
-        print(f"[SYSTEM]: Added/Updated {symbol}.txt.")
+            # Format each line
+            for bar in bars:
+                t = datetime.fromtimestamp(bar['t'])
+                day = t.strftime('%Y-%m-%d')
+                line = f"{day},{bar['o']},{bar['h']},{bar['l']},{bar['c']},{bar['v']}\n"
+                f.write(line)
+            print(f"[SYSTEM]: Added/Updated {symbol}.txt.")
+            return True
 
     # Calls the API to update the bar information.
     def updateBar(self, symbol):
@@ -156,15 +160,18 @@ class Bot:
         delay = now - timedelta(minutes=15)
         start = pd.Timestamp(delay.strftime("%Y-%m-%d %H:%M"), tz=self.NY).isoformat()
 
-        barData = self.api.get_bars(symbol, TimeFrame(1, TimeFrameUnit.Minute), start=start, end=start, adjustment='raw').df.iloc[0]
-        op, high, low, close, volume = str(barData['open']), str(barData['high']), str(barData['low']), str(barData['close']), str(barData['trade_count'])
-        date = delay.strftime("%Y-%m-%d")
-        writeData = ','.join([date, op, high, low, close, volume])
+        symbolDF = self.api.get_bars(symbol, TimeFrame(1, TimeFrameUnit.Minute), start=start, end=start, adjustment='raw').df
 
-        with open(filepath, 'a') as f:
-            f.write(writeData)
-            f.write("\n")
-            print(f"[SYSTEM]: Updated bar file for {symbol}.txt.")
+        if not symbolDF.empty:
+            barData = symbolDF.iloc[0]
+            op, high, low, close, volume = str(barData['open']), str(barData['high']), str(barData['low']), str(barData['close']), str(barData['trade_count'])
+            date = delay.strftime("%Y-%m-%d")
+            writeData = ','.join([date, op, high, low, close, volume])
+
+            with open(filepath, 'a') as f:
+                f.write(writeData)
+                f.write("\n")
+                print(f"[SYSTEM]: Updated bar file for {symbol}.txt.")
 
     # Read csv into dataframe
     def CSVtoDF(self, symbol):
@@ -202,8 +209,7 @@ class Bot:
 
         print(f"[STRATEGY] Recent data for {symbol}:\nLast Bid: {last_bid_price} | MA: {recent_moving_av} | MACD: {macd} | Signal: {signal} | Histogram: {histogram}")
 
-        if last_bid_price > recent_moving_av:
-
+        if recent_moving_av < last_bid_price < 100:
             if macd > 0:
                 # ENTRY: Buy when the MACD crosses over the zero line.
                 # NEW: Only buy if no positions for symbol
