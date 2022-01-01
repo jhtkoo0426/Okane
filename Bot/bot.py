@@ -82,46 +82,53 @@ class Bot:
     def getAccountPositions(self):
         return [i.raw['symbol'] for i in self.api.list_positions()]
 
-    def calcTakeProfit(self, symbol):
-        currPrice = float(si.get_live_price(symbol))
-        return currPrice * 1.01
-
-    def calcStopLoss(self, symbol):
-        currPrice = float(si.get_live_price(symbol))
-        return currPrice * 0.99
-
-    def buyOrder(self, symbol, qty):
-        takeProfit = dict(limit_price=self.calcTakeProfit(symbol))
-        stopLoss = dict(stop_price=self.calcStopLoss(symbol), limit_price=self.calcStopLoss(symbol))
-        self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day',
-                              take_profit=takeProfit, stop_loss=stopLoss)
-
-    def sellOrder(self, symbol, qty):
-        self.api.submit_order(symbol=symbol, side='sell', type='market', qty=qty, time_in_force='day')
+    def getSymbolCurrentPrice(self, symbol):
+        return si.get_live_price(symbol)
 
     # Function to determine how many shares to buy
     def determineBuyShares(self, sharesPrice):
         current_cash = self.getAccountCash()
-        shares_to_buy = math.ceil(float(current_cash) * 0.05 / sharesPrice) # Risking 5% of equity.
+        shares_to_buy = math.ceil(float(current_cash) * 0.1 / sharesPrice)  # Risking 3% of equity.
         return shares_to_buy
 
+    # def buyOrder(self, symbol, qty):
+    #     takeProfit = dict(limit_price=self.calcTakeProfit(symbol))
+    #     stopLoss = dict(stop_price=self.HA_Strategy_Stop_Loss(symbol), limit_price=self.HA_Strategy_Stop_Loss(symbol))
+    #     self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day',
+    #                           take_profit=takeProfit, stop_loss=stopLoss)
+
+    def sellOrder(self, symbol, qty):
+        self.api.submit_order(symbol=symbol, side='sell', type='market', qty=qty, time_in_force='day')
+
     # Data-related functions
-    # Get bars for a symbol. Create a file for the symbol if it doesn't exist. Update the file otherwise.
-    def getHourBars(self, symbol):
-        todayDate = datetime.now().strftime("%Y-%m-%d")
-        start = pd.Timestamp(todayDate, tz=self.NY).isoformat()
-        bars = self.api.get_bars([symbol], TimeFrame(1, TimeFrameUnit.Hour), adjustment='raw', start=start).df
+    # Get bars for a symbol.
+    # symbol = list of symbols / single symbol
+    # hourFrame = 1 hour / 4 hours depending on heiken-ashi strategy
+    def getHourBars(self, symbol, hourFrame):
+        nowTime = datetime.now()
+        twoWeekTime = nowTime - timedelta(days=7)
+        todayDate = nowTime.strftime("%Y-%m-%d")
+        oneWeekDate = twoWeekTime.strftime("%Y-%m-%d")
+
+        start = pd.Timestamp(oneWeekDate, tz=self.NY).isoformat()
+        end = pd.Timestamp(todayDate, tz=self.NY).isoformat()
+        bars = self.api.get_bars([symbol], TimeFrame(hourFrame, TimeFrameUnit.Hour), adjustment='raw', start=start, end=end).df
         return bars
 
     # Technical Indicators
     # Heiken Ashi Candlesticks
     # https://stackoverflow.com/questions/40613480/heiken-ashi-using-pandas-python
-    def calc_ha(self, df, symbol):
+    def calc_ha(self, df):
         dataframe = df.copy()
+
+        # Calculating close bar for HA = 0.25(open + high + low + close)
         dataframe['HA_close'] = (dataframe['open'] + dataframe['high'] + dataframe['low'] + dataframe['close']) / 4
         idx = dataframe.index.name
         dataframe.reset_index(inplace=True)
+
+        # Calculating open bar for HA = 0.5(ytd open + ytd close)
         for i in range(0, len(dataframe)):
+            # Determine open bar for HA
             if i == 0:
                 dataframe._set_value(i, 'HA_open', ((dataframe._get_value(i, 'open') + dataframe._get_value(i, 'close')) / 2))
             else:
@@ -132,14 +139,112 @@ class Bot:
 
         dataframe['HA_high'] = dataframe[['HA_open', 'HA_close', 'high']].max(axis=1)
         dataframe['HA_low'] = dataframe[['HA_open', 'HA_close', 'low']].min(axis=1)
-        print(f"[INDICATOR]: Geneated Heiken Ashi Candlesticks for {symbol}.")
-        return dataframe
+
+        # Determining bar type for each timeframe
+        HADataframe = self.createHABars(dataframe)
+        return HADataframe
+
+    def createHABars(self, dataframe):
+        df = dataframe.copy()
+        for index, row in df.iterrows():
+            # Determining bar type for each timeframe
+            high, low, open, close = row['HA_high'], row['HA_low'], row['HA_open'], row['HA_close']
+            barType = self.HADetermineBarType(high, low, open, close)
+            df._set_value(index, 'barType', barType)
+        return df
+
+    def HADetermineTrend(self, dataframe):
+        df = dataframe.copy()
+        ph, pl = -1, -1
+        for index, row in df.iterrows():
+            high, low = row['HA_high'], row['HA_low']
+            if index != 0:
+                if low > pl and high > ph:
+                    # Uptrend
+                    df._set_value(index, 'trend', 'UPTREND')
+                elif low < pl and high < ph:
+                    # Downtrend
+                    df._set_value(index, 'trend', 'DOWNTREND')
+                else:
+                    # TODO: Research on what to do if (low > pl and high < ph) and (low < pl and high > ph).
+                    df._set_value(index, 'trend', 'UNDETERMINED')
+            else:
+                df._set_value(index, 'trend', 'NaN')
+            ph, pl = high, low
+        return df
+
+    # Auxiliary function to determine the type of bar for the Heiken-Ashi strategy
+    def HADetermineBarType(self, high, low, open, close):
+        if low == open and high > close:
+            # Bullish trend: Price increasing
+            return "BULL"
+        elif high == open and low < close:
+            # Bearish trend: Price decreasing
+            return "BEAR"
+        else:
+            # Indecisive bar
+            return "INDECISIVE"
+
+    def HADetermineStopLoss(self, dataframe):
+        # Determining bar type for each timeframe
+        lastBear = -1  # Variable to determine the final bear bar in the dataframe
+        for index, row in dataframe.iterrows():
+            # Determine bar type
+            high, low, open, close = row['HA_high'], row['HA_low'], row['HA_open'], row['HA_close']
+            res = self.HADetermineBarType(high, low, open, close)
+            dataframe._set_value(index, 'barType', res)
+            if res == "BEAR":
+                lastBear = index
+        return lastBear
+
+    def HA_buy_order(self, symbol, stopLossPrice, qty):
+        takeProfit = dict(limit_price=self.calcTakeProfit(symbol))
+        stopLoss = dict(stop_price=stopLossPrice, limit_price=stopLossPrice)
+        self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day',
+                              take_profit=takeProfit, stop_loss=stopLoss)
+
+    def calc_ema(self, df, period):
+        dataframe = df.copy()
+        ema = btalib.ema(dataframe, period).df
+        combinedDF = pd.concat([dataframe, ema], axis=1)
+
+        # Renaming ema column
+        combinedDF.rename(columns={'ema': f'ema{period}'}, inplace=True)
+        return combinedDF
 
     # Strategy
     def exec(self, symbol):
-        bars = self.getHourBars(symbol)         # Get Raw dataframe
-        heikenAshiBars = self.calc_ha(bars, symbol)     # Generate HA dataframe
-        print(heikenAshiBars)
+        one_hour_bars = self.getHourBars(symbol, 1)         # Get 1hr raw dataframe
+        one_hour_ha_bars = self.calc_ha(one_hour_bars)      # Generate HA dataframe (1 hr)
+
+        # Apply EMA Indicators
+        one_hour_ha_ema10 = self.calc_ema(one_hour_ha_bars, 10)
+        one_hour_ha_ema30 = self.calc_ema(one_hour_ha_ema10, 30)
+
+        # Determine share price trend
+        finalDF = self.HADetermineTrend(one_hour_ha_ema30)
+
+        ema10, ema30 = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30']
+        lastBar = finalDF.iloc[-1]['barType']
+        trend = finalDF.iloc[-1]['trend']
+
+        # Determine entry point
+        print(f"[HA STRATEGY INFO]: lastBar: {lastBar} | ema10: {ema10} | ema30: {ema30} | trend: {trend}")
+        if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
+            print(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.")
+            stopLossPrice = self.HADetermineStopLoss(finalDF)
+
+            # TODO: Find way to determine how many shares to buy
+            symbolCurrentPrice = self.getSymbolCurrentPrice(symbol)
+            qty = math.floor(self.getAccountEquity() * 0.05 / self.determineBuyShares(symbolCurrentPrice))
+            self.HA_buy_order(symbol, stopLossPrice, qty)
+            print(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.")
+        elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
+            print(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.")
+            qty = self.getPosition(symbol)
+            self.sellOrder(symbol, qty)
+        else:
+            print(f"[HA STRATEGY]: Continuing holding {symbol}.")
 
     # Main function to activate bot.
     def start_bot(self):
@@ -164,7 +269,18 @@ class Bot:
                 print("[SYSTEM]: Market has closed. Bot will now sleep. Goodnight!")
         self.wait_for_market_open()
 
+    # Main Function alternative for testing
+    def mainTesting(self):
+        print("[SYSTEM]: Starting Testing Bot")
+        # Watch all symbols that are involved:
+        symbols = si.get_day_most_active(25)['Symbol'].to_list()
+        positions = self.getAccountPositions()  # Get all current positions
+        watchlist = list(set(symbols + positions))
+        for symbol in watchlist:
+            self.exec(symbol)
+
 
 if __name__ == '__main__':
     bot = Bot()
     bot.start_bot()
+    # bot.mainTesting()
