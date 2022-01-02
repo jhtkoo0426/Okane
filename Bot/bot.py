@@ -230,12 +230,12 @@ class Bot:
             remaining_time = self.time_to_market_close()
             while remaining_time > 120:
                 # Watch all symbols that are involved:
-                symbols = si.get_day_most_active(25)['Symbol'].to_list()
+                symbols = si.get_day_most_active(50)['Symbol'].to_list()
                 positions = self.getAccountPositions()  # Get all current positions
                 watchlist = list(set(symbols + positions))
 
-                # Get bars every 1 minute (with current 15 minute delay).
-                if floor(remaining_time) % 60 == 0:
+                # Get bars every 1 hour.
+                if floor(remaining_time) % 3600 == 0:
                     for symbol in watchlist:
                         self.exec(symbol)
                 remaining_time -= 1
@@ -250,7 +250,7 @@ class Bot:
     def mainTesting(self):
         print("[SYSTEM]: Starting Testing Bot")
         # Watch all symbols that are involved:
-        symbols = si.get_day_most_active(25)['Symbol'].to_list()
+        symbols = si.get_day_most_active(50)['Symbol'].to_list()
         positions = self.getAccountPositions()  # Get all current positions
         watchlist = list(set(symbols + positions))
         for symbol in watchlist:
