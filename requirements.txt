@@ -1,2 +1,3 @@
 websocket-client
 kivy
+pandas~=1.3.4
