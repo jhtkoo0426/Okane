@@ -177,7 +177,7 @@ class Bot:
             # Determine bar type
             barType = row['barType']
             if barType == "BEAR":
-                lastBear = index
+                lastBear = row['low']
         return lastBear
 
     def HABuyOrder(self, symbol, stopLossPrice, qty):
@@ -213,15 +213,19 @@ class Bot:
             # Buy non-fractional shares with 5% of equity.
             symbolCurrentPrice = si.get_live_price(symbol)
             stopLossPrice = self.HADetermineStopLoss(finalDF)
-            qty = math.floor(self.getAccountEquity() * 0.05 / self.determineBuyShares(symbolCurrentPrice))
-            self.HABuyOrder(symbol, stopLossPrice, qty)
-            print(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.")
+            if self.getPosition(symbol) is None:
+                qty = self.determineBuyShares(symbolCurrentPrice)
+                self.HABuyOrder(symbol, stopLossPrice, qty)
+                print(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.")
         elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
             print(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.")
             qty = self.getQty(symbol)
             self.sellOrder(symbol, qty)
         else:
-            print(f"[HA STRATEGY]: Continuing holding {symbol}.")
+            if self.getPosition(symbol) is not None:
+                print(f"[HA STRATEGY]: Continuing holding {symbol}.")
+            else:
+                print("[HA STRATEGY]: Do nothing.")
 
     # Main function to activate bot.
     def start_bot(self):
@@ -235,7 +239,7 @@ class Bot:
                 watchlist = list(set(symbols + positions))
 
                 # Get bars every 1 hour.
-                if floor(remaining_time) % 3600 == 0:
+                if floor(remaining_time) % 60 == 0:
                     for symbol in watchlist:
                         self.exec(symbol)
                 remaining_time -= 1
@@ -259,5 +263,5 @@ class Bot:
 
 if __name__ == '__main__':
     bot = Bot()
-    # bot.start_bot()
-    bot.mainTesting()
+    bot.start_bot()
+    # bot.mainTesting()
