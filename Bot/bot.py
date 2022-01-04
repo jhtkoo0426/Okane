@@ -97,7 +97,7 @@ class Bot:
         # hourFrame = 1 hour / 4 hours depending on heiken-ashi strategy
     def getHourBars(self, symbol, hourFrame):
         nowTime = datetime.now()
-        twoWeekTime = nowTime - timedelta(days=7)
+        twoWeekTime = nowTime - timedelta(days=14)
         todayDate = nowTime.strftime("%Y-%m-%d")
         oneWeekDate = twoWeekTime.strftime("%Y-%m-%d")
 
@@ -182,50 +182,58 @@ class Bot:
 
     def HABuyOrder(self, symbol, stopLossPrice, qty):
         stopLoss = dict(stop_price=stopLossPrice, limit_price=stopLossPrice)
-        self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day',
-                              stop_loss=stopLoss)
+        try:
+            self.api.submit_order(symbol=symbol, side='buy', type='market', qty=qty, time_in_force='day',
+                                  stop_loss=stopLoss)
+        except APIError:
+            print(f"{symbol} is not tradable.")
 
-    def calc_ema(self, df, period):
+    # Calculate ema10 and ema30.
+    def calc_ema(self, df):
         dataframe = df.copy()
-        ema = btalib.ema(dataframe, period).df
-        combinedDF = pd.concat([dataframe, ema], axis=1)
 
-        # Renaming ema column
-        combinedDF.rename(columns={'ema': f'ema{period}'}, inplace=True)
-        return combinedDF
+        # Insufficient data to generate ema30
+        if len(dataframe) < 40:
+            print("Insufficient data to analyse symbol.")
+            return None
+        else:
+            ema10 = btalib.ema(dataframe, 10).df['ema']
+            combinedDF = pd.concat([dataframe, ema10], axis=1)
+            combinedDF.rename(columns={'ema': f'ema10'}, inplace=True)  # Rename column
+
+            ema30 = btalib.ema(dataframe, 30).df['ema']
+            combinedDF2 = pd.concat([combinedDF, ema30], axis=1)
+            combinedDF2.rename(columns={'ema': f'ema30'}, inplace=True)  # Rename column
+            return combinedDF2
 
     # Strategy
     def exec(self, symbol):
-        one_hour_bars = self.getHourBars(symbol, 1)         # Get 1hr raw dataframe
+        one_hour_bars = self.getHourBars(symbol, 4)         # Get 1hr raw dataframe
         one_hour_ha_bars = self.calc_ha(one_hour_bars)      # Generate HA dataframe (1 hr)
 
         # Apply EMA Indicators
-        one_hour_ha_ema10 = self.calc_ema(one_hour_ha_bars, 10)
-        finalDF = self.calc_ema(one_hour_ha_ema10, 30)
-        ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
+        finalDF = self.calc_ema(one_hour_ha_bars)
+        if finalDF is not None:
+            ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
 
-        # Determine entry point
-        print(f"[HA STRATEGY INFO]: lastBar: {lastBar} | ema10: {ema10} | ema30: {ema30} | trend: {trend}")
+            # Determine entry point
+            if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
+                if self.getPosition(symbol) is not None:
+                    print(f"[HA STRATEGY]: Continuing holding {symbol}.")
+                else:
+                    print(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.")
+                    # Buy non-fractional shares with 5% of equity.
+                    symbolCurrentPrice = si.get_live_price(symbol)
+                    stopLossPrice = self.HADetermineStopLoss(finalDF)
+                    if self.getPosition(symbol) is None:
+                        qty = self.determineBuyShares(symbolCurrentPrice)
+                        self.HABuyOrder(symbol, stopLossPrice, qty)
+                        print(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.")
 
-        if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
-            print(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.")
-
-            # Buy non-fractional shares with 5% of equity.
-            symbolCurrentPrice = si.get_live_price(symbol)
-            stopLossPrice = self.HADetermineStopLoss(finalDF)
-            if self.getPosition(symbol) is None:
-                qty = self.determineBuyShares(symbolCurrentPrice)
-                self.HABuyOrder(symbol, stopLossPrice, qty)
-                print(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.")
-        elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
-            print(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.")
-            qty = self.getQty(symbol)
-            self.sellOrder(symbol, qty)
-        else:
-            if self.getPosition(symbol) is not None:
-                print(f"[HA STRATEGY]: Continuing holding {symbol}.")
-            else:
-                print("[HA STRATEGY]: Do nothing.")
+            elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
+                print(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.")
+                qty = self.getQty(symbol)
+                self.sellOrder(symbol, qty)
 
     # Main function to activate bot.
     def start_bot(self):
@@ -234,7 +242,7 @@ class Bot:
             remaining_time = self.time_to_market_close()
             while remaining_time > 120:
                 # Watch all symbols that are involved:
-                symbols = si.get_day_most_active(50)['Symbol'].to_list()
+                symbols = si.get_day_most_active(25)['Symbol'].to_list()
                 positions = self.getAccountPositions()  # Get all current positions
                 watchlist = list(set(symbols + positions))
 
@@ -254,7 +262,7 @@ class Bot:
     def mainTesting(self):
         print("[SYSTEM]: Starting Testing Bot")
         # Watch all symbols that are involved:
-        symbols = si.get_day_most_active(50)['Symbol'].to_list()
+        symbols = si.get_day_most_active(25)['Symbol'].to_list()
         positions = self.getAccountPositions()  # Get all current positions
         watchlist = list(set(symbols + positions))
         for symbol in watchlist:
