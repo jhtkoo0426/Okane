@@ -14,6 +14,8 @@ import yahoo_fin.stock_info as si
 
 from Bot.config import API_KEY, SECRET_KEY
 
+from termcolor import colored
+
 
 class Bot:
     def __init__(self):
@@ -213,30 +215,30 @@ class Bot:
         # Apply EMA Indicators
         finalDF = self.calc_ema(one_hour_ha_bars)
         if finalDF is None:
-            print(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.")
+            print(colored(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.", 'red'))
         else:
             ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
 
             # Determine entry point
             if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
                 if self.getPosition(symbol) is not None:
-                    print(f"[HA STRATEGY]: Continuing holding {symbol}.")
+                    print(colored(f"[HA STRATEGY]: Continuing holding {symbol}.", 'green'))
                 else:
-                    print(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.")
+                    print(colored(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.", 'blue'))
                     # Buy non-fractional shares with 5% of equity.
                     symbolCurrentPrice = si.get_live_price(symbol)
                     stopLossPrice = self.HADetermineStopLoss(finalDF)
                     if self.getPosition(symbol) is None:
                         qty = self.determineBuyShares(symbolCurrentPrice)
                         self.HABuyOrder(symbol, stopLossPrice, qty)
-                        print(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.")
+                        print(colored(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.", 'yellow'))
 
             elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
-                print(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.")
+                print(colored(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.", 'red'))
                 qty = self.getQty(symbol)
                 self.sellOrder(symbol, qty)
             else:
-                print(f"[HA STRATEGY]: Do nothing for {symbol}")
+                print(colored(f"[HA STRATEGY]: Do nothing for {symbol}", 'grey'))
 
     # Main function to activate bot.
     def start_bot(self):
