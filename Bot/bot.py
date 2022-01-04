@@ -194,7 +194,6 @@ class Bot:
 
         # Insufficient data to generate ema30
         if len(dataframe) < 40:
-            print("Insufficient data to analyse symbol.")
             return None
         else:
             ema10 = btalib.ema(dataframe, 10).df['ema']
@@ -213,7 +212,9 @@ class Bot:
 
         # Apply EMA Indicators
         finalDF = self.calc_ema(one_hour_ha_bars)
-        if finalDF is not None:
+        if finalDF is None:
+            print(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.")
+        else:
             ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
 
             # Determine entry point
@@ -234,6 +235,8 @@ class Bot:
                 print(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.")
                 qty = self.getQty(symbol)
                 self.sellOrder(symbol, qty)
+            else:
+                print(f"[HA STRATEGY]: Do nothing for {symbol}")
 
     # Main function to activate bot.
     def start_bot(self):
