@@ -215,34 +215,35 @@ class Bot:
         # Apply EMA Indicators
         finalDF = self.calc_ema(one_hour_ha_bars)
         if finalDF is None:
-            print(colored(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.", 'red'))
+            sys.stdout.write(colored(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.\n", 'red'))
         else:
             ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
 
             # Determine entry point
             if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
                 if self.getPosition(symbol) is not None:
-                    print(colored(f"[HA STRATEGY]: Continuing holding {symbol}.", 'green'))
+                    sys.stdout.write(colored(f"[HA STRATEGY]: Continuing holding {symbol}.\n", 'green'))
+                    stopLossPrice = self.HADetermineStopLoss(finalDF)
                 else:
-                    print(colored(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.", 'blue'))
+                    sys.stdout.write(colored(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.\n", 'blue'))
                     # Buy non-fractional shares with 5% of equity.
                     symbolCurrentPrice = si.get_live_price(symbol)
                     stopLossPrice = self.HADetermineStopLoss(finalDF)
                     if self.getPosition(symbol) is None:
                         qty = self.determineBuyShares(symbolCurrentPrice)
                         self.HABuyOrder(symbol, stopLossPrice, qty)
-                        print(colored(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.", 'yellow'))
+                        sys.stdout.write(colored(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.\n", 'yellow'))
 
             elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
-                print(colored(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.", 'red'))
+                sys.stdout.write(colored(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.\n", 'red'))
                 qty = self.getQty(symbol)
                 self.sellOrder(symbol, qty)
             else:
-                print(colored(f"[HA STRATEGY]: Do nothing for {symbol}", 'grey'))
+                sys.stdout.write(colored(f"[HA STRATEGY]: Do nothing for {symbol}.\n", 'grey'))
 
     # Main function to activate bot.
     def start_bot(self):
-        print("[SYSTEM]: Starting Bot")
+        print("[SYSTEM]: Bot Started.")
         if self.marketIsOpen() is True:
             remaining_time = self.time_to_market_close()
             while remaining_time > 120:
@@ -253,6 +254,8 @@ class Bot:
 
                 # Get bars every 1 hour.
                 if floor(remaining_time) % 60 == 0:
+                    sys.stdout.write("\033[H\033[J")
+                    sys.stdout.write(colored(f"[SYSTEM]: Current watchlist has {len(watchlist)} symbols.\n", 'yellow'))
                     for symbol in watchlist:
                         self.exec(symbol)
                 remaining_time -= 1
