@@ -144,6 +144,11 @@ class Bot:
             high, low, opn, close = row['HA_high'], row['HA_low'], row['HA_open'], row['HA_close']
             barType = self.HADetermineBarType(high, low, opn, close)
             df._set_value(index, 'barType', barType)
+
+            if low > prev_low:
+                prev_low = low
+            if high > prev_high:
+                prev_high = high
             trend = self.HADetermineSymbolTrend(index, high, low, prev_high, prev_low)
             df._set_value(index, 'trend', trend)
         return df
@@ -209,7 +214,7 @@ class Bot:
 
     # Strategy
     def exec(self, symbol):
-        one_hour_bars = self.getHourBars(symbol, 4)         # Get 1hr raw dataframe
+        one_hour_bars = self.getHourBars(symbol, 1)         # Get 1hr raw dataframe
         one_hour_ha_bars = self.calc_ha(one_hour_bars)      # Generate HA dataframe (1 hr)
 
         # Apply EMA Indicators
@@ -219,13 +224,14 @@ class Bot:
         else:
             ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
 
-            # Determine entry point
+            print(ema10, ema30, lastBar, trend)
+            # Determine entry point/leaving point
             if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
                 if self.getPosition(symbol) is not None:
                     sys.stdout.write(colored(f"[HA STRATEGY]: Continuing holding {symbol}.\n", 'green'))
-                    stopLossPrice = self.HADetermineStopLoss(finalDF)
                 else:
                     sys.stdout.write(colored(f"[HA STRATEGY]: Conditions satisfied to buy {symbol}.\n", 'blue'))
+
                     # Buy non-fractional shares with 5% of equity.
                     symbolCurrentPrice = si.get_live_price(symbol)
                     stopLossPrice = self.HADetermineStopLoss(finalDF)
@@ -235,9 +241,12 @@ class Bot:
                         sys.stdout.write(colored(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.\n", 'yellow'))
 
             elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
-                sys.stdout.write(colored(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.\n", 'red'))
-                qty = self.getQty(symbol)
-                self.sellOrder(symbol, qty)
+                if self.getPosition(symbol) is not None:
+                    sys.stdout.write(colored(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.\n", 'red'))
+                    qty = self.getQty(symbol)
+                    self.sellOrder(symbol, qty)
+                else:
+                    sys.stdout.write(colored(f"[HA STRATEGY]: Do nothing for {symbol}.\n", 'grey'))
             else:
                 sys.stdout.write(colored(f"[HA STRATEGY]: Do nothing for {symbol}.\n", 'grey'))
 
