@@ -108,6 +108,17 @@ class Bot:
         bars = self.api.get_bars([symbol], TimeFrame(hourFrame, TimeFrameUnit.Hour), adjustment='raw', start=start, end=end).df
         return bars
 
+    def getDailyBars(self, symbol):
+        nowTime = datetime.now()
+        twoWeekTime = nowTime - timedelta(days=14)
+        todayDate = nowTime.strftime("%Y-%m-%d")
+        oneWeekDate = twoWeekTime.strftime("%Y-%m-%d")
+        start = pd.Timestamp(oneWeekDate, tz=self.NY).isoformat()
+        end = pd.Timestamp(todayDate, tz=self.NY).isoformat()
+        bars = self.api.get_bars([symbol], TimeFrame(1, TimeFrameUnit.Day), adjustment='raw', start=start,
+                                 end=end).df
+        return bars
+
     # Technical Indicators
     # Heiken Ashi Candlesticks
     # https://stackoverflow.com/questions/40613480/heiken-ashi-using-pandas-python
@@ -144,13 +155,6 @@ class Bot:
             high, low, opn, close = row['HA_high'], row['HA_low'], row['HA_open'], row['HA_close']
             barType = self.HADetermineBarType(high, low, opn, close)
             df._set_value(index, 'barType', barType)
-
-            if low > prev_low:
-                prev_low = low
-            if high > prev_high:
-                prev_high = high
-            trend = self.HADetermineSymbolTrend(index, high, low, prev_high, prev_low)
-            df._set_value(index, 'trend', trend)
         return df
 
     # Auxiliary function to determine the type of bar for the Heiken-Ashi strategy
@@ -165,17 +169,18 @@ class Bot:
             # Indecisive bar
             return "INDECISIVE"
 
-    def HADetermineSymbolTrend(self, index, high, low, prev_high, prev_low):
-        if index != 0:
-            if low > prev_low and high > prev_high:
-                return "UPTREND"
-            elif low < prev_low and high < prev_high:
-                return "DOWNTREND"
-            else:
-                # TODO: Research on what to do if (low > pl and high < ph) and (low < pl and high > ph).
-                return "UNDETERMINED"
+    # Function to determine the trend for the higher timeframe
+    def HADetermineSymbolTrend(self, dataframe):
+        prev_low, prev_high = dataframe.iloc[-2]['low'], dataframe.iloc[-2]['high']
+        low, high = dataframe.iloc[-1]['low'], dataframe.iloc[-1]['high']
+        # print("low: ", low, "prev low: ", prev_low, "high: ", high, "prev high: ", prev_high)
+        if (low > prev_low and high > prev_high) or (low > prev_low and high < prev_high):
+            return "UPTREND"
+        elif (low < prev_low and high < prev_high) or (low < prev_low and high > prev_high):
+            return "DOWNTREND"
         else:
-            return "NaN"
+            # TODO: Research on what to do if (low > pl and high < ph) and (low < pl and high > ph).
+            return "UNDETERMINED"
 
     def HADetermineStopLoss(self, dataframe):
         # Determining bar type for each timeframe
@@ -212,21 +217,57 @@ class Bot:
             combinedDF2.rename(columns={'ema': f'ema30'}, inplace=True)  # Rename column
             return combinedDF2
 
-    # Strategy
-    def exec(self, symbol):
-        one_hour_bars = self.getHourBars(symbol, 1)         # Get 1hr raw dataframe
-        one_hour_ha_bars = self.calc_ha(one_hour_bars)      # Generate HA dataframe (1 hr)
+    # This function determines if a symbol satisfies all the criteria.
+    def strategy_decide_buy(self, symbol):
+        one_hour_bars = self.getHourBars(symbol, 1)  # Get 1hr raw dataframe
+        four_hour_bars = self.getHourBars(symbol, 4)  # Get 4hr raw dataframe
+        daily_bars = self.getDailyBars(symbol)  # Get daily raw dataframe
+        one_hour_ha_bars = self.calc_ha(one_hour_bars)  # Generate HA dataframe (1 hr)
+        four_hour_ha_bars = self.calc_ha(four_hour_bars)
 
         # Apply EMA Indicators
-        finalDF = self.calc_ema(one_hour_ha_bars)
-        if finalDF is None:
-            sys.stdout.write(colored(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.\n", 'red'))
-        else:
-            ema10, ema30, lastBar, trend = finalDF.iloc[-1]['ema10'], finalDF.iloc[-1]['ema30'], finalDF.iloc[-1]['barType'], finalDF.iloc[-1]['trend']
+        one_hr_DF = self.calc_ema(one_hour_ha_bars)
+        four_hr_DF = self.calc_ema(four_hour_ha_bars)
 
-            print(ema10, ema30, lastBar, trend)
-            # Determine entry point/leaving point
-            if lastBar == "BULL" and ema10 > ema30 and trend == "UPTREND":
+        satisfied_criteria_count = 0
+        if one_hr_DF is None or four_hr_DF is None or one_hour_bars is None or four_hour_bars is None:
+            sys.stdout.write(colored(f"[HA STRATEGY]: Insufficient data to analyse {symbol}.\n", 'red'))
+            return 0, "NaN", 0
+        else:
+            one_hr_ema10, one_hr_ema30, one_hr_lastBar = one_hr_DF.iloc[-1]['ema10'], one_hr_DF.iloc[-1]['ema30'], one_hr_DF.iloc[-1]['barType']
+            four_hr_ema10, four_hr_ema30, four_hr_lastBar = four_hr_DF.iloc[-1]['ema10'], four_hr_DF.iloc[-1]['ema30'], four_hr_DF.iloc[-1]['barType']
+            four_hr_trend = self.HADetermineSymbolTrend(four_hour_bars)
+            daily_trend = self.HADetermineSymbolTrend(daily_bars)
+
+            # Criteria 1: The higher timeframe must be in an uptrend.
+            # if four_hr_trend == "UPTREND" and daily_trend == "UPTREND":
+            if four_hr_trend == "UPTREND":
+                satisfied_criteria_count += 1
+
+            # Criteria 2: EMA10 > EMA30 for the lower timeframe.
+            #if one_hr_ema10 > one_hr_ema30 and four_hr_ema10 > four_hr_ema30:
+            if four_hr_ema10 > four_hr_ema30:
+                satisfied_criteria_count += 1
+
+            barTypeColumn = four_hr_DF['barType'].tolist()
+            if barTypeColumn.count("BULL") > barTypeColumn.count("BEAR"):
+                satisfied_criteria_count += 1
+            print(four_hr_DF['barType'].tolist())
+
+            stopLoss = self.HADetermineStopLoss(one_hr_DF)
+            return satisfied_criteria_count, one_hr_lastBar, stopLoss
+
+    # Strategy
+    # The bot trades on the 1 hr timeframe, so it determines the entry point using the 1 hr dataframe.
+    def exec(self, symbol):
+        satisfied_criteria_count, one_hr_lastBar, stopLossPrice = self.strategy_decide_buy(symbol)
+        print(satisfied_criteria_count, one_hr_lastBar)
+
+        # Determine entry point/leaving point
+        if satisfied_criteria_count == 2:   # All criteria satisfied.
+            sys.stdout.write(colored(f"[HA STRATEGY]: All pre-conditions satisified for {symbol}.\n", 'blue'))
+
+            if one_hr_lastBar == "BULL":
                 if self.getPosition(symbol) is not None:
                     sys.stdout.write(colored(f"[HA STRATEGY]: Continuing holding {symbol}.\n", 'green'))
                 else:
@@ -234,21 +275,22 @@ class Bot:
 
                     # Buy non-fractional shares with 5% of equity.
                     symbolCurrentPrice = si.get_live_price(symbol)
-                    stopLossPrice = self.HADetermineStopLoss(finalDF)
                     if self.getPosition(symbol) is None:
                         qty = self.determineBuyShares(symbolCurrentPrice)
                         self.HABuyOrder(symbol, stopLossPrice, qty)
                         sys.stdout.write(colored(f"[HA STRATEGY]: Bought {qty} shares of {symbol}.\n", 'yellow'))
 
-            elif lastBar == "BEAR" and ema10 < ema30 and trend == "DOWNTREND":
+            elif one_hr_lastBar == "BEAR":
                 if self.getPosition(symbol) is not None:
                     sys.stdout.write(colored(f"[HA STRATEGY]: STOP LOSS: Selling all shares of {symbol}.\n", 'red'))
                     qty = self.getQty(symbol)
                     self.sellOrder(symbol, qty)
                 else:
-                    sys.stdout.write(colored(f"[HA STRATEGY]: Do nothing for {symbol}.\n", 'grey'))
+                    sys.stdout.write(colored(f"[HA STRATEGY]: No positions - Do nothing for {symbol}.\n", 'grey'))
             else:
-                sys.stdout.write(colored(f"[HA STRATEGY]: Do nothing for {symbol}.\n", 'grey'))
+                sys.stdout.write(colored(f"[HA STRATEGY]: Indecisive bar - Do nothing for {symbol}.\n", 'grey'))
+        else:
+            sys.stdout.write(colored(f"Some criteria is not satisfied for {symbol}.\n", "grey"))
 
     # Main function to activate bot.
     def start_bot(self):
