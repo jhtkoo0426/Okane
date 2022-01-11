@@ -3,6 +3,7 @@ import sys
 from math import floor
 import time
 from datetime import datetime, timedelta
+from threading import Thread
 
 import alpaca_trade_api as tradeapi
 import btalib
@@ -11,6 +12,7 @@ from alpaca_trade_api import TimeFrameUnit
 from alpaca_trade_api.stream import URL
 from alpaca_trade_api.rest import APIError, TimeFrame
 import yahoo_fin.stock_info as si
+import yfinance as yf
 
 from Bot.config import API_KEY, SECRET_KEY
 
@@ -79,6 +81,13 @@ class Bot:
         else:
             return position['qty']
 
+    # Get live (as much as possible) price of symbol
+    def getSymbolCurrentPrice(self, symbol):
+        data = yf.download(tickers=symbol, period='1d', interval='1m')
+        last = data.iloc[-1]['Close']
+        print(last)
+        return last
+
     # Function to determine how many shares to buy
     def determineBuyShares(self, sharesPrice):
         current_cash = self.getAccountCash()
@@ -98,16 +107,21 @@ class Bot:
     # Get bars for a symbol.
         # symbol = list of symbols / single symbol
         # hourFrame = 1 hour / 4 hours depending on heiken-ashi strategy
-    def getHourBars(self, symbol, hourFrame):
-        nowTime = datetime.now()
-        twoWeekTime = nowTime - timedelta(days=14)
-        todayDate = nowTime.strftime("%Y-%m-%d")
-        oneWeekDate = twoWeekTime.strftime("%Y-%m-%d")
+    # def getHourBars(self, symbol, hourFrame):
+    #     nowTime = datetime.now()
+    #     twoWeekTime = nowTime - timedelta(days=14)
+    #     todayDate = nowTime.strftime("%Y-%m-%d")
+    #     oneWeekDate = twoWeekTime.strftime("%Y-%m-%d")
+    #
+    #     start = pd.Timestamp(oneWeekDate, tz=self.NY).isoformat()
+    #     end = pd.Timestamp(todayDate, tz=self.NY).isoformat()
+    #     bars = self.api.get_bars([symbol], TimeFrame(hourFrame, TimeFrameUnit.Hour), adjustment='raw', start=start, end=end).df
+    #     return bars
 
-        start = pd.Timestamp(oneWeekDate, tz=self.NY).isoformat()
-        end = pd.Timestamp(todayDate, tz=self.NY).isoformat()
-        bars = self.api.get_bars([symbol], TimeFrame(hourFrame, TimeFrameUnit.Hour), adjustment='raw', start=start, end=end).df
-        return bars
+    # Using the yfinance API
+    def getHourBars(self, symbol):
+        data = yf.download(tickers=symbol, period='5d', interval='1h')
+        return data
 
     # Technical Indicators
     # Heiken Ashi Candlesticks
@@ -214,11 +228,11 @@ class Bot:
                 stopLoss = self.HADetermineStopLoss(one_hr_DF)
                 self.HABuyOrder(symbol, stopLoss, qty)
                 sys.stdout.write(
-                    colored(f"[STRATEGY - {symbol}]: Pullback detected - buying {qty} share(s).\n", 'blue'))
+                    colored(f"[STRATEGY - {symbol} (BUY)]: Pullback detected - buying {qty} share(s).\n", 'blue'))
             else:
-                sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Continue holding.\n", 'green'))
+                sys.stdout.write(colored(f"[STRATEGY - {symbol} (BUY)]: Continue holding.\n", 'green'))
         else:
-            sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Conditions not satisfied to buy shares.\n", 'grey'))
+            sys.stdout.write(colored(f"[STRATEGY - {symbol} (BUY)]: Conditions not satisfied to buy shares.\n", 'grey'))
 
     def strategy_sell(self, symbol, currentBar, prevBar, trendType):
         # sys.stdout.write(colored(f"[Confirmation - {symbol}]: strategy_sell\n"))
@@ -228,56 +242,81 @@ class Bot:
             if self.getPosition(symbol) is not None:
                 qty = self.getQty(symbol)
                 self.sellOrder(symbol, qty)
-                sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Downtrend detected - selling all share(s)\n.", 'red'))
+                sys.stdout.write(colored(f"[STRATEGY - {symbol} (SELL)]: Downtrend detected - selling all share(s)\n.", 'yellow'))
             else:
-                sys.stdout.write(colored(f"[STRATEGY - {symbol}]: No shares, do nothing.\n", 'green'))
+                sys.stdout.write(colored(f"[STRATEGY - {symbol} (SELL)]: No shares, do nothing.\n", 'green'))
         else:
-            sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Conditions not satisfied to sell shares.\n", 'grey'))
+            sys.stdout.write(colored(f"[STRATEGY - {symbol} (SELL)]: Conditions not satisfied to sell shares.\n", 'grey'))
 
     # This function determines if a symbol satisfies all the criteria.
-    def executeStrategy(self, symbol):
-        one_hour_bars = self.getHourBars(symbol, 1)     # Get 1hr raw dataframe
+    def strategy(self, symbol):
+        one_hour_bars = self.getHourBars(symbol)     # Get 1hr raw dataframe
+
         if one_hour_bars.empty:
-            sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.", 'red'))
+            sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
         else:
             one_hour_ha_bars = self.calc_ha(one_hour_bars)  # Generate HA dataframe (1 hr)
-            one_hr_DF = self.calc_ema(one_hour_ha_bars)     # Calculate EMA20 for the dataframe.
-
-            currentEMA20 = one_hr_DF.iloc[-1]['ema20']
-            currentSymbolPrice = si.get_live_price(symbol)
-            trendType = self.determineTrend(one_hr_DF)
-            currentBar, prevBar = one_hr_DF.iloc[-1]['barType'], one_hr_DF.iloc[-2]['barType']
-
-            if currentSymbolPrice > currentEMA20:
-                # Buy the symbol - Check for bar conditions (last 2 are BULL, trend is in pullback)
-                self.strategy_buy(symbol, currentBar, trendType, currentSymbolPrice, one_hr_DF)
+            if one_hour_ha_bars.empty:
+                sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
             else:
-                # Sell the symbol - Check for bar conditions
-                self.strategy_sell(symbol, currentBar, prevBar, trendType)
+                one_hr_DF = self.calc_ema(one_hour_ha_bars)  # Calculate EMA20 for the dataframe.
+                if one_hr_DF is None or one_hr_DF.empty:
+                    sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
+                else:
+                    currentEMA20 = one_hr_DF.iloc[-1]['ema20']
+                    # currentSymbolPrice = si.get_live_price(symbol)
+                    currentSymbolPrice = self.getSymbolCurrentPrice(symbol)
+
+                    trendType = self.determineTrend(one_hr_DF)
+                    currentBar, prevBar = one_hr_DF.iloc[-1]['barType'], one_hr_DF.iloc[-2]['barType']
+
+                    if currentSymbolPrice > currentEMA20:
+                        # Buy the symbol - Check for bar conditions (last 2 are BULL, trend is in pullback)
+                        self.strategy_buy(symbol, currentBar, trendType, currentSymbolPrice, one_hr_DF)
+                    else:
+                        # Sell the symbol - Check for bar conditions
+                        self.strategy_sell(symbol, currentBar, prevBar, trendType)
+
+    def exec(self, remaining_time, watchlist):
+        if floor(remaining_time) % 3600 == 0:
+            sys.stdout.write(colored("\nRunning Strategy...\n", 'yellow'))
+            sys.stdout.write("\033[H\033[J")
+            sys.stdout.write(colored(f"[SYSTEM]: Current watchlist has {len(watchlist)} symbols.\n", 'yellow'))
+            for index, symbol in enumerate(watchlist):
+                self.strategy(symbol)
+        else:
+            sys.stdout.write(f"\rTime to run strategy: {remaining_time % 3600}")
+            sys.stdout.flush()
+
+    def countDown(self):
+        self.remaining_time = self.remaining_time - 1
+        time.sleep(1)
 
     # Main function to activate bot.
     def start_bot(self):
         print("[SYSTEM]: Bot Started.")
         if self.marketIsOpen() is True:
-            remaining_time = self.time_to_market_close()
-            while remaining_time > 120:
+            self.remaining_time = self.time_to_market_close()
+            while self.remaining_time > 120:
                 # Watch all symbols that are involved:
-                symbols = si.tickers_sp500(False)
+                symbols = []
+                try:
+                    symbols = si.tickers_sp500(False)
+                except:
+                    sys.stdout.write(colored("Yahoo Finance Connection Error...", 'red'))
+                    time.sleep(10)
+                    sys.stdout.write(colored("Yahoo Finance Connection Error...", 'red'))
+                    continue
                 # symbols = si.get_day_most_active(25)['Symbol'].to_list()
                 positions = self.getAccountPositions()  # Get all current positions
                 watchlist = list(set(symbols + positions))
 
                 # Get bars every 1 hour.
-                if floor(remaining_time) % 60 == 0:
-                    sys.stdout.write("\033[H\033[J")
-                    sys.stdout.write(colored(f"[SYSTEM]: Current watchlist has {len(watchlist)} symbols.\n", 'yellow'))
-                    for symbol in watchlist:
-                        self.executeStrategy(symbol)
-                remaining_time -= 1
-                time.sleep(1)
-            if 0 < remaining_time < 120:
+                Thread(target=self.exec(self.remaining_time, watchlist)).start()
+                Thread(target=self.countDown()).start()
+            if 0 < self.remaining_time < 120:
                 print("[SYSTEM]: Market is closing in 2 minutes.")
-            elif remaining_time == 0:
+            elif self.remaining_time == 0:
                 print("[SYSTEM]: Market has closed. Bot will now sleep. Goodnight!")
         self.wait_for_market_open()
 
@@ -285,11 +324,15 @@ class Bot:
     def mainTesting(self):
         print("[SYSTEM]: Starting Testing Bot")
         # Watch all symbols that are involved:
-        symbols = si.get_day_most_active(25)['Symbol'].to_list()
+        symbols = si.get_day_most_active(1)['Symbol'].to_list()
         positions = self.getAccountPositions()  # Get all current positions
-        watchlist = list(set(symbols + positions))
+        # watchlist = list(set(symbols + positions))
+        watchlist = symbols
         for symbol in watchlist:
-            self.executeStrategy(symbol)
+            # self.executeStrategy(symbol)
+            # data = yf.download(tickers=symbol, period='5d', interval='1h')
+            pd.set_option('display.max_columns', None)
+            data = self.getSymbolCurrentPrice(symbol)
 
 
 if __name__ == '__main__':
