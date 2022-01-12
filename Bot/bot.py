@@ -112,6 +112,11 @@ class Bot:
     def sellOrder(self, symbol, qty):
         self.api.submit_order(symbol=symbol, side='sell', type='market', qty=qty, time_in_force='day')
 
+
+    # System-related functions
+    def writeSystemMsg(self, msg, color):
+        sys.stdout.write(colored(msg, color))
+
     # Data-related functions
     # Get bars for a symbol.
         # symbol = list of symbols / single symbol
@@ -129,7 +134,7 @@ class Bot:
                                      end=end).df
             return bars
         except HTTPError:
-            sys.stdout.write(colored(f"[ALPACA SERVER ERROR]: Cannot get data for {symbol}.\n", 'red'))
+            self.writeSystemMsg(f"[ALPACA SERVER ERROR]: Cannot get data for {symbol}.\n", 'red')
             return None
 
     # Technical Indicators
@@ -238,12 +243,11 @@ class Bot:
                 qty = self.determineBuyShares(currentSymbolPrice)
                 stopLoss = self.HADetermineStopLoss(one_hr_DF)
                 self.HABuyOrder(symbol, stopLoss, qty)
-                sys.stdout.write(
-                    colored(f"[STRATEGY - {symbol} (BUY)]: Pullback detected - buying {qty} share(s).\n", 'blue'))
+                self.writeSystemMsg(f"[STRATEGY - {symbol} (BUY)]: Pullback detected - buying {qty} share(s).\n", 'blue')
             else:
-                sys.stdout.write(colored(f"[STRATEGY - {symbol} (BUY)]: Continue holding.\n", 'green'))
+                self.writeSystemMsg(f"[STRATEGY - {symbol} (BUY)]: Continue holding.\n", 'green')
         else:
-            sys.stdout.write(colored(f"[STRATEGY - {symbol} (BUY)]: Conditions not satisfied to buy shares.\n", 'grey'))
+            self.writeSystemMsg(f"[STRATEGY - {symbol} (BUY)]: Conditions not satisfied to buy shares.\n", 'grey')
 
     def strategy_sell(self, symbol, currentBar, prevBar, trendType):
         # sys.stdout.write(colored(f"[Confirmation - {symbol}]: strategy_sell\n"))
@@ -253,26 +257,26 @@ class Bot:
             if self.getPosition(symbol) is not None:
                 qty = self.getQty(symbol)
                 self.sellOrder(symbol, qty)
-                sys.stdout.write(colored(f"[STRATEGY - {symbol} (SELL)]: Downtrend detected - selling all share(s)\n.", 'yellow'))
+                self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: Downtrend detected - selling all share(s)\n.", 'yellow')
             else:
-                sys.stdout.write(colored(f"[STRATEGY - {symbol} (SELL)]: No shares, do nothing.\n", 'green'))
+                self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: No shares, do nothing.\n", 'green')
         else:
-            sys.stdout.write(colored(f"[STRATEGY - {symbol} (SELL)]: Conditions not satisfied to sell shares.\n", 'grey'))
+            self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: Conditions not satisfied to sell shares.\n", 'grey')
 
     # This function determines if a symbol satisfies all the criteria.
     def strategy(self, symbol):
         one_hour_bars = self.getHourBars(symbol, 1)     # Get 1hr raw dataframe
 
         if one_hour_bars is None:
-            sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
+            self.writeSystemMsg(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red')
         else:
             one_hour_ha_bars = self.calc_ha(one_hour_bars)  # Generate HA dataframe (1 hr)
             if one_hour_ha_bars is None:
-                sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
+                self.writeSystemMsg(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red')
             else:
                 one_hr_DF = self.calc_ema(one_hour_ha_bars)  # Calculate EMA20 for the dataframe.
                 if one_hr_DF is None or one_hr_DF.empty:
-                    sys.stdout.write(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
+                    self.writeSystemMsg(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
                 else:
                     currentEMA20 = one_hr_DF.iloc[-1]['ema20']
                     # currentSymbolPrice = si.get_live_price(symbol)
@@ -286,7 +290,7 @@ class Bot:
                         if self.getPosition(symbol) is not None:
                             qty = self.getQty(symbol)
                             self.sellOrder(symbol, qty)
-                            sys.stdout.write(colored(f"[STRATEGY - {symbol} (EMERGENCY SELL)]: Selling all share(s) for profit\n.", 'yellow'))
+                            self.writeSystemMsg(f"[STRATEGY - {symbol} (EMERGENCY SELL)]: Selling all share(s) for profit\n.", 'yellow')
                     if currentSymbolPrice > currentEMA20:
                         # Buy the symbol - Check for bar conditions (last 2 are BULL, trend is in pullback)
                         self.strategy_buy(symbol, currentBar, trendType, currentSymbolPrice, one_hr_DF)
@@ -295,14 +299,14 @@ class Bot:
                         self.strategy_sell(symbol, currentBar, prevBar, trendType)
 
     def exec(self, remaining_time, watchlist):
-        # if floor(remaining_time) % 3600 == 0:
-            sys.stdout.write(colored("\nRunning Strategy...\n", 'yellow'))
+        if floor(remaining_time) % 3600 == 0:
+            self.writeSystemMsg("\nRunning Strategy...\n", 'yellow')
             sys.stdout.write("\033[H\033[J")
-            sys.stdout.write(colored(f"[SYSTEM]: Current watchlist has {len(watchlist)} symbols.\n", 'yellow'))
+            self.writeSystemMsg(f"[SYSTEM]: Current watchlist has {len(watchlist)} symbols.\n", 'yellow')
             for index, symbol in enumerate(watchlist):
                 self.strategy(symbol)
-        # else:
-            sys.stdout.write(f"\rTime to run strategy: {remaining_time % 3600}")
+        else:
+            self.writeSystemMsg(f"\rTime to run strategy: {remaining_time % 3600}", 'white')
             sys.stdout.flush()
 
     def countDown(self):
@@ -320,9 +324,7 @@ class Bot:
                 try:
                     symbols = si.tickers_sp500(False)
                 except:
-                    sys.stdout.write(colored("Yahoo Finance Connection Error...", 'red'))
-                    time.sleep(10)
-                    sys.stdout.write(colored("Yahoo Finance Connection Error...", 'red'))
+                    self.writeSystemMsg("Yahoo Finance Connection Error...", 'red')
                     continue
                 # symbols = si.get_day_most_active(25)['Symbol'].to_list()
                 positions = self.getAccountPositions()  # Get all current positions
