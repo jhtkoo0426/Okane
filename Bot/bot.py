@@ -90,8 +90,11 @@ class Bot:
             entry = position['avg_entry_price']
             if currentPrice > float(entry) * 1.03:
                 # SELL IMMEDIATELY FOR PROFIT
-                return True
-            return False
+                return "PROFIT"
+            elif currentPrice < float(entry) * 0.98:
+                return "LOSS"
+            else:
+                return None
 
     # Get live (as much as possible) price of symbol
     def getSymbolCurrentPrice(self, symbol):
@@ -111,7 +114,6 @@ class Bot:
 
     def sellOrder(self, symbol, qty):
         self.api.submit_order(symbol=symbol, side='sell', type='market', qty=qty, time_in_force='day')
-
 
     # System-related functions
     def writeSystemMsg(self, msg, color):
@@ -235,11 +237,8 @@ class Bot:
             return "NO TREND"
 
     def strategy_buy(self, symbol, currentBar, trendType, currentSymbolPrice, one_hr_DF):
-        # sys.stdout.write(colored(f"[Confirmation - {symbol}]: strategy_buy\n"))
-        # print(currentBar, trendType)
-        if currentBar == "BULL" and trendType == "PULLBACK":
-            # Check if we hold shares for the symbol.
-            if self.getPosition(symbol) is None:
+        if self.getPosition(symbol) is not None:
+            if currentBar == "BULL" and trendType == "PULLBACK":
                 qty = self.determineBuyShares(currentSymbolPrice)
                 stopLoss = self.HADetermineStopLoss(one_hr_DF)
                 self.HABuyOrder(symbol, stopLoss, qty)
@@ -247,21 +246,19 @@ class Bot:
             else:
                 self.writeSystemMsg(f"[STRATEGY - {symbol} (BUY)]: Continue holding.\n", 'green')
         else:
-            self.writeSystemMsg(f"[STRATEGY - {symbol} (BUY)]: Conditions not satisfied to buy shares.\n", 'grey')
+            self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: No shares, do nothing.\n", 'grey')
 
     def strategy_sell(self, symbol, currentBar, prevBar, trendType):
-        # sys.stdout.write(colored(f"[Confirmation - {symbol}]: strategy_sell\n"))
-        # print(currentBar, prevBar, trendType)
-        if currentBar == "BEAR" and prevBar == "BEAR" and trendType == "DROP":
-            # Check if we hold shares for the symbol.
-            if self.getPosition(symbol) is not None:
+        # Check if we hold shares for the symbol.
+        if self.getPosition(symbol) is not None:
+            if currentBar == "BEAR" and prevBar == "BEAR" and trendType == "DROP":
                 qty = self.getQty(symbol)
                 self.sellOrder(symbol, qty)
                 self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: Downtrend detected - selling all share(s)\n.", 'yellow')
             else:
-                self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: No shares, do nothing.\n", 'green')
+                self.writeSystemMsg(f"[STRATEGY - {symbol} (BUY)]: Continue holding.\n", 'green')
         else:
-            self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: Conditions not satisfied to sell shares.\n", 'grey')
+            self.writeSystemMsg(f"[STRATEGY - {symbol} (SELL)]: No shares, do nothing.\n", 'grey')
 
     # This function determines if a symbol satisfies all the criteria.
     def strategy(self, symbol):
@@ -276,7 +273,7 @@ class Bot:
             else:
                 one_hr_DF = self.calc_ema(one_hour_ha_bars)  # Calculate EMA20 for the dataframe.
                 if one_hr_DF is None or one_hr_DF.empty:
-                    self.writeSystemMsg(colored(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red'))
+                    self.writeSystemMsg(f"[STRATEGY - {symbol}]: Insufficient data.\n", 'red')
                 else:
                     currentEMA20 = one_hr_DF.iloc[-1]['ema20']
                     # currentSymbolPrice = si.get_live_price(symbol)
@@ -286,56 +283,61 @@ class Bot:
                     currentBar, prevBar = one_hr_DF.iloc[-1]['barType'], one_hr_DF.iloc[-2]['barType']
 
                     sell_bool = self.determineSell(symbol, currentSymbolPrice)
-                    if sell_bool is True:
-                        if self.getPosition(symbol) is not None:
-                            qty = self.getQty(symbol)
-                            self.sellOrder(symbol, qty)
-                            self.writeSystemMsg(f"[STRATEGY - {symbol} (EMERGENCY SELL)]: Selling all share(s) for profit\n.", 'yellow')
-                    if currentSymbolPrice > currentEMA20:
-                        # Buy the symbol - Check for bar conditions (last 2 are BULL, trend is in pullback)
-                        self.strategy_buy(symbol, currentBar, trendType, currentSymbolPrice, one_hr_DF)
+                    # Emergency sell
+                    if sell_bool == "PROFIT":
+                        qty = self.getQty(symbol)
+                        self.sellOrder(symbol, qty)
+                        self.writeSystemMsg(f"[STRATEGY - {symbol} (EMERGENCY SELL)]: Selling all share(s) for profit.\n", 'yellow')
+                    elif sell_bool == "LOSS":
+                        qty = self.getQty(symbol)
+                        self.sellOrder(symbol, qty)
+                        self.writeSystemMsg(f"[STRATEGY - {symbol} (EMERGENCY SELL)]: Selling all share(s) to stop loss.\n", 'yellow')
                     else:
-                        # Sell the symbol - Check for bar conditions
-                        self.strategy_sell(symbol, currentBar, prevBar, trendType)
+                        if currentSymbolPrice > currentEMA20:
+                            # Buy the symbol - Check for bar conditions (last 2 are BULL, trend is in pullback)
+                            self.strategy_buy(symbol, currentBar, trendType, currentSymbolPrice, one_hr_DF)
+                        else:
+                            # Sell the symbol - Check for bar conditions
+                            self.strategy_sell(symbol, currentBar, prevBar, trendType)
 
-    def exec(self, remaining_time, watchlist):
-        if floor(remaining_time) % 3600 == 0:
+    def exec(self, watchlist):
+        now = datetime.now()
+        if now.minute == 0:
             self.writeSystemMsg("\nRunning Strategy...\n", 'yellow')
             sys.stdout.write("\033[H\033[J")
             self.writeSystemMsg(f"[SYSTEM]: Current watchlist has {len(watchlist)} symbols.\n", 'yellow')
             for index, symbol in enumerate(watchlist):
                 self.strategy(symbol)
         else:
-            self.writeSystemMsg(f"\rTime to run strategy: {remaining_time % 3600}", 'white')
-            sys.stdout.flush()
+            delta = timedelta(hours=1)
+            next_hour = (now + delta).replace(microsecond=0, second=0, minute=1)
 
-    def countDown(self):
-        self.remaining_time = self.remaining_time - 1
-        time.sleep(1)
+            wait_seconds = (next_hour - now).seconds
+            self.writeSystemMsg(f"\rTime to run strategy: {wait_seconds}", 'white')
+            sys.stdout.flush()
 
     # Main function to activate bot.
     def start_bot(self):
         print("[SYSTEM]: Bot Started.")
         if self.marketIsOpen() is True:
-            self.remaining_time = self.time_to_market_close()
-            while self.remaining_time > 120:
+            remaining_time = self.time_to_market_close()
+            while remaining_time > 120:
                 # Watch all symbols that are involved:
-                symbols = []
                 try:
                     symbols = si.tickers_sp500(False)
+                    positions = self.getAccountPositions()  # Get all current positions
+                    watchlist = list(set(symbols + positions))
+                    watchlist = sorted(watchlist)
+
+                    # Get bars every 1 hour.
+                    self.exec(watchlist)
                 except:
                     self.writeSystemMsg("Yahoo Finance Connection Error...", 'red')
                     continue
-                # symbols = si.get_day_most_active(25)['Symbol'].to_list()
-                positions = self.getAccountPositions()  # Get all current positions
-                watchlist = list(set(symbols + positions))
 
-                # Get bars every 1 hour.
-                Thread(target=self.exec(self.remaining_time, watchlist)).start()
-                Thread(target=self.countDown()).start()
-            if 0 < self.remaining_time < 120:
+            if 0 < remaining_time < 120:
                 print("[SYSTEM]: Market is closing in 2 minutes.")
-            elif self.remaining_time == 0:
+            elif remaining_time == 0:
                 print("[SYSTEM]: Market has closed. Bot will now sleep. Goodnight!")
         self.wait_for_market_open()
 
